@@ -1,0 +1,4 @@
+.sidebar-toggle {
+    position: absolute;
+    transform: scale(2) translate(2vw, 2vh);
+}
