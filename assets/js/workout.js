@@ -4,7 +4,7 @@ const SERPAPI_API_KEY =
 $(document).ready(function () {
     console.log('ready')
     $('.sidebar-toggle').click(function () {
-        $('.excercise').fadeToggle()
+        $('.exercise').fadeToggle()
         $('.sidebar').animate({
             opacity: 'toggle',
             width: 'toggle',
@@ -12,27 +12,27 @@ $(document).ready(function () {
     })
 
     const userData = JSON.parse(localStorage.getItem('userData'))
-    // type of excercises for each type of person
+    // type of exercises for each type of person
     let equipment
     if (userData.place === 'home') {
         equipment = ['body_only', 'none']
     } else {
         equipment = 'any'
     }
-    const excercisesData = {
+    const exercisesData = {
         equipment: equipment,
-        excercise1: 'cardio',
-        excercise2: 'plyometrics',
-        excercise3: `${userData.goal === 'gain' ? 'strength' : 'cardio'}`,
+        exercise1: 'cardio',
+        exercise2: 'plyometrics',
+        exercise3: `${userData.goal === 'gain' ? 'strength' : 'cardio'}`,
     }
 
-    const excercises = {}
+    const exercises = {}
     const fetches = []
     for (let i = 1; i <= 3; i++) {
         fetches.push(
             fetch(
                 `https://api.api-ninjas.com/v1/exercises?type=${
-                    excercisesData[`excercise${i}`]
+                    exercisesData[`exercise${i}`]
                 }`,
                 {
                     method: 'GET',
@@ -44,24 +44,23 @@ $(document).ready(function () {
                 .then((response) => response.json())
                 .then((data) => {
                     if (equipment === 'any') {
-                        let randomExcerciseNumber = Math.round(
+                        let randomExerciseNumber = Math.round(
                             Math.random() * data.length
                         )
-                        excercises[`excercise${i}`] = {
-                            excerciseName: data[randomExcerciseNumber].name,
-                            excerciseDescription:
-                                data[randomExcerciseNumber].instructions,
+                        exercises[`exercise${i}`] = {
+                            exerciseName: data[randomExerciseNumber].name,
+                            exerciseDescription:
+                                data[randomExerciseNumber].instructions,
                         }
                     } else {
-                        for (const excercise of data) {
+                        for (const exercise of data) {
                             if (
-                                excercise.equipment === equipment[0] ||
-                                excercise.equipment === equipment[1]
+                                exercise.equipment === equipment[0] ||
+                                exercise.equipment === equipment[1]
                             ) {
-                                excercises[`excercise${i}`] = {
-                                    excerciseName: excercise.name,
-                                    excerciseDescription:
-                                        excercise.instructions,
+                                exercises[`exercise${i}`] = {
+                                    exerciseName: exercise.name,
+                                    exerciseDescription: exercise.instructions,
                                 }
                             }
                         }
@@ -70,26 +69,26 @@ $(document).ready(function () {
         )
     }
     Promise.all(fetches).then(function () {
-        $('.excercise1').text(`${excercises.excercise1.excerciseName}`)
-        $('.excercise2').text(`${excercises.excercise2.excerciseName}`)
-        $('.excercise3').text(`${excercises.excercise3.excerciseName}`)
+        $('.exercise1').text(`${exercises.exercise1.exerciseName}`)
+        $('.exercise2').text(`${exercises.exercise2.exerciseName}`)
+        $('.exercise3').text(`${exercises.exercise3.exerciseName}`)
     })
-    $('.excercise1').click(() => {
-        $('.mainExcercise').text(`${excercises.excercise1.excerciseName}`)
-        $('.mainExcerciseDescription').text(
-            `${excercises.excercise1.excerciseDescription}`
+    $('.exercise1').click(() => {
+        $('.mainExercise').text(`${exercises.exercise1.exerciseName}`)
+        $('.mainExerciseDescription').text(
+            `${exercises.exercise1.exerciseDescription}`
         )
     })
-    $('.excercise2').click(() => {
-        $('.mainExcercise').text(`${excercises.excercise2.excerciseName}`)
-        $('.mainExcerciseDescription').text(
-            `${excercises.excercise2.excerciseDescription}`
+    $('.exercise2').click(() => {
+        $('.mainExercise').text(`${exercises.exercise2.exerciseName}`)
+        $('.mainExerciseDescription').text(
+            `${exercises.exercise2.exerciseDescription}`
         )
     })
-    $('.excercise3').click(() => {
-        $('.mainExcercise').text(`${excercises.excercise3.excerciseName}`)
-        $('.mainExcerciseDescription').text(
-            `${excercises.excercise3.excerciseDescription}`
+    $('.exercise3').click(() => {
+        $('.mainExercise').text(`${exercises.exercise3.exerciseName}`)
+        $('.mainExerciseDescription').text(
+            `${exercises.exercise3.exerciseDescription}`
         )
     })
 })
