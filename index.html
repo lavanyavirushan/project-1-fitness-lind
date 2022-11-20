@@ -5,10 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="assets/css/theme.css" />
-        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/workout.css" />
         <title>Fitness</title>
     </head>
-    <body>
+    <body class="bg-green-200">
         <button class="sidebar-toggle">
             <!-- svg hamburger icon -->
             <svg
@@ -25,9 +25,9 @@
                 />
             </svg>
         </button>
-        <nav class="flex justify-center w-[100vw] m-2">
+        <nav class="flex justify-center m-2">
             <div
-                class="container bg-white shadow dark:bg-gray-800 flex w-[80vw] items-center justify-center p-6 mx-auto text-gray-600 dark:text-gray-300 rounded-lg"
+                class="container bg-green-900 shadow dark:bg-green-900 flex w-[80vw] items-center justify-center p-6 mx-auto text-gray-600 dark:text-gray-300 rounded-lg"
             >
                 <a
                     href="#"
@@ -36,7 +36,7 @@
                 >
 
                 <a
-                    href="#"
+                    href="./assets/html/diet.html"
                     class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
                     >Diet</a
                 >
@@ -46,53 +46,72 @@
                     class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
                     >Profile</a
                 >
+                <a
+                    href="./assets/html/landing.html"
+                    class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+                    >Landing page (dev)</a
+                >
             </div>
         </nav>
 
-        <main class="flex flex-auto m-2 h-max">
+        <main class="flex flex-auto m-2">
             <!-- excersice list -->
             <div
-                class="sidebar flex flex-none flex-col justify-between p-6 bg-black rounded-lg"
+                class="sidebar bg-green-900 flex flex-none flex-col justify-between p-6 rounded-lg"
             >
-                <div
-                    class="excercise flex bg-indigo-500 h-12 p-8 justify-center items-center m-1 rounded-lg"
-                    >Excercise</div
+                <button
+                    class="exercise flex bg-green-300 h-12 p-8 justify-center items-center m-1 rounded-lg"
+                    >Warmup (TBA)</button
                 >
-                <div
-                    class="excercise flex bg-indigo-500 h-12 p-8 justify-center items-center m-1 rounded-lg"
-                    >Excercise</div
+                <button
+                    class="exercise exercise1 flex bg-green-300 h-12 p-8 justify-center items-center m-1 rounded-lg"
+                    >Exercise</button
                 >
-                <div
-                    class="excercise flex bg-indigo-500 h-12 p-8 justify-center items-center m-1 rounded-lg"
-                    >Excercise</div
+                <button
+                    class="exercise exercise2 flex bg-green-300 h-12 p-8 justify-center items-center m-1 rounded-lg"
+                    >Exercise</button
                 >
-                <div
-                    class="excercise flex bg-indigo-500 h-12 p-8 px-16 justify-center items-center m-1 rounded-lg"
-                    >Excercise</div
+                <button
+                    class="exercise exercise3 flex bg-green-300 h-12 p-8 px-16 justify-center items-center m-1 rounded-lg"
+                    >Exercise</button
                 >
-                <div
-                    class="excercise flex bg-indigo-500 h-12 p-8 justify-center items-center m-1 rounded-lg"
-                    >Excercise</div
+                <button
+                    class="exercise flex bg-green-300 h-12 p-8 justify-center items-center m-1 rounded-lg"
+                    >Cooldown (TBA)</button
                 >
             </div>
 
             <!-- block with excersises -->
-            <div class="flex flex-auto flex-col bg-black mx-2 p-6 rounded-lg">
+            <div
+                class="flex flex-auto flex-col bg-green-300 mx-2 p-6 rounded-lg"
+            >
                 <div class="flex flex-auto justify-between">
                     <div
-                        class="flex flex-auto bg-indigo-500 h-12 p-6 justify-center items-center m-1 rounded-lg"
-                        >Excercise name</div
+                        class="mainExercise flex flex-auto bg-green-500 h-auto w-auto p-10 justify-center items-center m-1 rounded-lg"
+                        >Exercise name</div
                     >
                     <div
-                        class="flex flex-auto bg-indigo-500 h-12 p-6 justify-center items-center m-1 rounded-lg"
-                        >Excercise description Lorem ipsum dolor sit amet,
+                        class="mainExerciseDescription flex flex-auto bg-green-500 h-auto p-10 justify-center items-center m-1 rounded-lg"
+                        >Exercise description Lorem ipsum dolor sit amet,
                         consectetur adipisicing elit.</div
                     >
                 </div>
                 <div
-                    class="flex flex-auto bg-indigo-500 h-12 p-60 justify-center items-center m-1 rounded-lg"
-                    >Excercise video</div
-                >
+                    class="flex flex-auto bg-green-500 h-[60vh] justify-center items-center m-1 rounded-lg"
+                    >Video
+                    <!-- this google shit right here creates so many spyware logs in console so i had to comment it for now -->
+                    <!-- <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/y1r9toPQNkM"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        class="rounded-lg m-4"
+                    ></iframe
+                > -->
+                </div>
             </div>
         </main>
 
@@ -102,6 +121,6 @@
             integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
             crossorigin="anonymous"
         ></script>
-        <script src="assets/js/script.js"></script>
+        <script src="./assets/js/workout.js"></script>
     </body>
 </html>

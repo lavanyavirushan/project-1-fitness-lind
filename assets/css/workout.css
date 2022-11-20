@@ -2,3 +2,8 @@
     position: absolute;
     transform: scale(2) translate(2vw, 2vh);
 }
+iframe {
+    height: 90%;
+    width: auto;
+    aspect-ratio: 16/9;
+}
