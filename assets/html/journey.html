@@ -260,7 +260,7 @@
               >
               <a
                 class="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-emerald-100 hover:text-emerald-900"
-                href="/workout.html"
+                href="/assets/html/workout.html"
                 >Workouts</a
               >
               <a
@@ -270,7 +270,7 @@
               >
               <a
                 class="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-emerald-100 hover:text-emerald-900"
-                href="/assets/html/diet.html"
+                href="/assets/html/contact.html"
                 >Contact us</a
               >
             </div>
@@ -279,33 +279,8 @@
       </div>
     </header>
 
-    <!--Body-->
+    <!--Main-->
     <main>
-      <div
-        class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-16 text-center"
-      >
-        <h1
-          class="mx-auto max-w-3xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl"
-        >
-          Push harder than yesterday if you want a
-          <span class="relative whitespace-nowrap text-emerald-600"
-            ><span class="relative">different</span></span
-          >
-          tomorrow.
-        </h1>
-        <p class="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
-          Achive your dream fitness goal with accustomed workouts and meal
-          plans!
-        </p>
-        <div class="mt-10 flex justify-center gap-x-6">
-          <a
-            class="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-emerald-700 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900"
-            href="/register"
-            >Start your Journey</a
-          >
-        </div>
-      </div>
-
       <form class="mx-auto max-w-2xl px-4 mb-6" action="">
         <h1
           class="mx-auto max-w-3xl font-display text-2xl font-medium text-emerald-700 sm:text-4xl mb-6"
@@ -360,16 +335,17 @@
           </div>
           <div class="relative z-0 mb-6 w-full group">
             <label
-              for="countries"
+              for="gender"
               class="block mb-2 text-sm font-medium text-emerald-800"
               >Select your gender</label
             >
             <select
-              id="countries"
+              id="gender"
               class="border-2 border-emerald-700 text-emerald-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             >
-              <option>Male</option>
-              <option>Female</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
             </select>
           </div>
         </div>
@@ -416,8 +392,7 @@
               type="radio"
               name="body-type"
               value="Ectomorph"
-              class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
-              checked
+              class="body-type-option w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
             />
             <label
               for="body-type-option-1"
@@ -433,7 +408,7 @@
               type="radio"
               name="body-type"
               value="Endomorph"
-              class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+              class="body-type-option w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
             />
             <label
               for="body-type-option-2"
@@ -449,7 +424,7 @@
               type="radio"
               name="body-type"
               value="Mesomorph"
-              class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
+              class="body-type-option w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
             />
             <label
               for="body-type-option-3"
@@ -470,10 +445,11 @@
             id="weight-goal"
             class="border-2 border-emerald-700 text-emerald-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           >
-            <option>Gain Muscle</option>
-            <option>Loose Weight</option>
+            <option value="gain">Gain Muscle</option>
+            <option value="lose">Lose Weight</option>
           </select>
         </div>
+
         <button
           type="submit"
           id="personalized-workout"
@@ -484,6 +460,7 @@
       </form>
     </main>
 
+    <!--Footer-->
     <footer class="text-center text-white">
       <div class="pt-2">
         <div class="flex justify-center mb-2">
@@ -554,8 +531,8 @@
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"
     ></script>
-    <script src="../js/dispatcher/landing.js"></script>
-    <script src="../js/ui/landing.js"></script>
-    <script src="../js/services/landing.js"></script>
+    <script src="../js/dispatcher/journey.js"></script>
+    <script src="../js/ui/journey.js"></script>
+    <script src="../js/services/journey.js"></script>
   </body>
 </html>

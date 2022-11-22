@@ -7,10 +7,10 @@ function submitDispatcher(){
     setUserDetails({
         name: `${firstName.value}  ${lastName.value}`,
         age: age.value,
-        gender: "male",
+        gender: gender.value,
         height: height.value,
         weight: weight.value,
         bodyType: "endomorph",
-        goal: "gain"
+        goal: workoutGoal.value
     })
 }
