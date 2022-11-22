@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+        <link rel="stylesheet" href="../css/bmi.css" />
+        <title>bmi</title>
+    </head>
+    <body>
+        <h1>Learn how to live a healthy lifestyle</h1>
+        <div class="form-container flex">
+            <div>
+                <form action="#">
+                    <div class="wrapper">
+                        <h2>About you?</h2>
+                        <div class="flex">
+                            <div class="flex">
+                                <input
+                                    type="radio"
+                                    id="male"
+                                    value="male"
+                                    name="gender"
+                                />
+                                <label for="male">Male</label>
+                            </div>
+                            <div class="flex">
+                                <input
+                                    type="radio"
+                                    id="female"
+                                    value="female"
+                                    name="gender"
+                                />
+                                <label for="female">Female</label>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <input id="age" name="age" placeholder="Age" />
+                            <select
+                                id="height"
+                                name="feet"
+                                aria-label="Height"
+                                data-error-message="Please enter a value for feet."
+                                placeholder="Ft"
+                                required="required"
+                            >
+                                <option
+                                    name="feet"
+                                    value=""
+                                    selected="selected"
+                                >
+                                    Height Ft.
+                                </option>
+                                <option name="feet" value="3">3 ft</option>
+                                <option name="feet" value="4">4 ft</option>
+                                <option name="feet" value="5">5 ft</option>
+                                <option name="feet" value="6">6 ft</option>
+                                <option name="feet" value="7">7 ft</option>
+                                <option name="feet" value="8">8 ft</option>
+                            </select>
+
+                            <select
+                                id="inches"
+                                name="inches"
+                                aria-label="Inches"
+                                data-error-message="Please enter a value for inches."
+                                placeholder="In"
+                                required="required"
+                            >
+                                <option
+                                    name="inches"
+                                    value=""
+                                    selected="selected"
+                                    disabled="disabled"
+                                >
+                                    In.
+                                </option>
+                                <option name="inches" value="0">0 in</option>
+                                <option name="inches" value="1">1 in</option>
+                                <option name="inches" value="2">2 in</option>
+                                <option name="inches" value="3">3 in</option>
+                                <option name="inches" value="4">4 in</option>
+                                <option name="inches" value="5">5 in</option>
+                                <option name="inches" value="6">6 in</option>
+                                <option name="inches" value="7">7 in</option>
+                                <option name="inches" value="8">8 in</option>
+                                <option name="inches" value="9">9 in</option>
+                                <option name="inches" value="10">10 in</option>
+                                <option name="inches" value="11">11 in</option>
+                            </select>
+                        </div>
+                        <input
+                            id="weight"
+                            name="weight"
+                            data-error-message="Please enter a valid current weight."
+                            placeholder="Current Weight lbs"
+                            type="number"
+                            required="required"
+                            aria-label="Current weight"
+                        />
+
+                        <h3>How physically active are you?</h3>
+
+                        <div class="flex">
+                            <div class="flex">
+                                <input
+                                    type="radio"
+                                    id="Very Active"
+                                    value="Very Active"
+                                    name="excercise"
+                                />
+                                <label for="Very Active">Very Active</label>
+                            </div>
+                            <div class="flex">
+                                <input
+                                    type="radio"
+                                    id="Moderate Activity"
+                                    value="Moderate Activity"
+                                    name="excercise"
+                                />
+                                <label for="Moderate Activity"
+                                    >Moderate Activity</label
+                                >
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex">
+                                <input
+                                    type="radio"
+                                    id="Light Activity"
+                                    value="Light Activity"
+                                    name="excercise"
+                                />
+                                <label>Light Activity</label>
+                            </div>
+                            <div class="flex">
+                                <input
+                                    type="radio"
+                                    id="Sedentary"
+                                    value="Sedentary"
+                                    name="excercise"
+                                />
+                                <label>Sedentary</label>
+                            </div>
+                        </div>
+                        <button>Calculate</button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <h4>Fitness LIND healthy lifestyle recommendations</h4>
+                <p class="recommendation">recommendation</p>
+            </div>
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.6.1.js"
+            integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+            crossorigin="anonymous"
+        ></script>
+        <script src="../js/bmi.js"></script>
+    </body>
+</html>

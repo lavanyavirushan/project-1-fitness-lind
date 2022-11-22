@@ -1,0 +1,10 @@
+.flex {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-container {
+    max-width: 40%;
+    background-color: aqua;
+    padding: 3rem;
+}
