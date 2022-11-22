@@ -4,13 +4,17 @@
  * TODO: need to set gender, bodyType, goal
  */
 function submitDispatcher(){
+
+    const bodyTypeSelected = [].filter.call( bodyType, function( el ) {
+        return el.checked;
+     });
     setUserDetails({
         name: `${firstName.value}  ${lastName.value}`,
         age: age.value,
         gender: gender.value,
         height: height.value,
         weight: weight.value,
-        bodyType: "endomorph",
+        bodyType: bodyTypeSelected[0].value,
         goal: workoutGoal.value
     })
 }

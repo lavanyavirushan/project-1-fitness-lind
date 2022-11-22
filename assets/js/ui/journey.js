@@ -10,7 +10,9 @@ const gender = document.querySelector("#gender");
 const workoutGoal = document.querySelector("#weight-goal")
 const height = document.querySelector("#height");
 const weight = document.querySelector("#weight");
-const bodyType = document.querySelector('input[name="body-type"]:checked')
+const bodyType = document.querySelectorAll('input[name="body-type"]')
+
+ 
 
 const workoutEvent = workout.addEventListener("click", function(event){
     event.preventDefault();
