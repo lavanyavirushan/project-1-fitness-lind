@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/theme.css" />
-    <link rel="stylesheet" href="assets/css/landing.css" />
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/landing.css" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <title>Fitness LIND - One place for all your fitness goals.</title>
   </head>
@@ -279,36 +279,189 @@
       </div>
     </header>
 
-    <!--Body-->
+    <!--Main-->
     <main>
-      <div
-        class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-16 text-center"
-      >
+      <form class="mx-auto max-w-2xl px-4 mb-6" action="">
         <h1
-          class="mx-auto max-w-3xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl"
+          class="mx-auto max-w-3xl font-display text-2xl font-medium text-emerald-700 sm:text-4xl mb-6"
         >
-          Push harder than yesterday if you want a
-          <span class="relative whitespace-nowrap text-emerald-600"
-            ><span class="relative">different</span></span
-          >
-          tomorrow.
+          Personalize Journey
         </h1>
-        <p class="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
-          Achive your dream fitness goal with accustomed workouts and meal
-          plans!
-        </p>
-        <div class="mt-10 flex justify-center gap-x-6">
-          <a
-            class="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-emerald-700 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900"
-            href="./assets/html/journey.html"
-            >Start your Journey</a
-          >
+        <div class="grid md:grid-cols-2 md:gap-6">
+          <div class="relative z-0 mb-6 w-full group">
+            <label
+              for="first-name"
+              class="block mb-2 text-sm font-medium text-emerald-800"
+              >First Name</label
+            >
+            <input
+              type="text"
+              id="first-name"
+              class="border-2 border-emerald-700 text-emerald-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder="Martin"
+              required
+            />
+          </div>
+          <div class="relative z-0 mb-6 w-full group">
+            <label
+              for="last-name"
+              class="block mb-2 text-sm font-medium text-emerald-800"
+              >Last Name</label
+            >
+            <input
+              type="text"
+              id="last-name"
+              class="border-2 border-emerald-700 text-emerald-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder="Miller"
+              required
+            />
+          </div>
         </div>
-      </div>
+
+        <div class="grid md:grid-cols-2 md:gap-6">
+          <div class="relative z-0 mb-6 w-full group">
+            <label
+              for="age"
+              class="block mb-2 text-sm font-medium text-emerald-800"
+              >Age</label
+            >
+            <input
+              type="number"
+              id="age"
+              class="border-2 border-emerald-700 text-emerald-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder="36"
+              required
+            />
+          </div>
+          <div class="relative z-0 mb-6 w-full group">
+            <label
+              for="gender"
+              class="block mb-2 text-sm font-medium text-emerald-800"
+              >Select your gender</label
+            >
+            <select
+              id="gender"
+              class="border-2 border-emerald-700 text-emerald-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            >
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 md:gap-6">
+          <div class="relative z-0 mb-6 w-full group">
+            <label
+              for="height"
+              class="block mb-2 text-sm font-medium text-emerald-800"
+              >Height (cm)</label
+            >
+            <input
+              type="number"
+              id="height"
+              class="border-2 border-emerald-700 text-emerald-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder="180"
+              required
+            />
+          </div>
+          <div class="relative z-0 mb-6 w-full group">
+            <label
+              for="weight"
+              class="block mb-2 text-sm font-medium text-emerald-800"
+              >Weight (kg)</label
+            >
+            <input
+              type="number"
+              id="weight"
+              class="border-2 border-emerald-700 text-emerald-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder="70"
+              required
+            />
+          </div>
+        </div>
+
+        <fieldset>
+          <legend class="block mt-2 mb-2 text-sm font-medium text-emerald-800">
+            Your body type:
+          </legend>
+
+          <div class="flex items-center mb-4">
+            <input
+              id="body-type-option-1"
+              type="radio"
+              name="body-type"
+              value="Ectomorph"
+              class="body-type-option w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+            />
+            <label
+              for="body-type-option-1"
+              class="block ml-2 text-sm font-medium text-emerald-900"
+            >
+              Ectomorph
+            </label>
+          </div>
+
+          <div class="flex items-center mb-4">
+            <input
+              id="body-type-option-2"
+              type="radio"
+              name="body-type"
+              value="Endomorph"
+              class="body-type-option w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+            />
+            <label
+              for="body-type-option-2"
+              class="block ml-2 text-sm font-medium text-emerald-900"
+            >
+              Endomorph
+            </label>
+          </div>
+
+          <div class="flex items-center mb-4">
+            <input
+              id="body-type-option-3"
+              type="radio"
+              name="body-type"
+              value="Mesomorph"
+              class="body-type-option w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
+            />
+            <label
+              for="body-type-option-3"
+              class="block ml-2 text-sm font-medium text-emerald-900"
+            >
+              Mesomorph
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="relative z-0 mb-6 w-full group">
+          <label
+            for="weight-goal"
+            class="block mb-2 text-sm font-medium text-emerald-800"
+            >Select your gender</label
+          >
+          <select
+            id="weight-goal"
+            class="border-2 border-emerald-700 text-emerald-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          >
+            <option value="gain">Gain Muscle</option>
+            <option value="lose">Lose Weight</option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          id="personalized-workout"
+          class="rounded-full text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+        >
+          Submit
+        </button>
+      </form>
     </main>
 
     <!--Footer-->
-    <footer class="text-center text-white fixed inset-x-0 bottom-0">
+    <footer class="text-center text-white">
       <div class="pt-2">
         <div class="flex justify-center mb-2">
           <a href="#!" class="mr-9 text-gray-800">
@@ -378,5 +531,8 @@
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"
     ></script>
+    <script src="../js/dispatcher/journey.js"></script>
+    <script src="../js/ui/journey.js"></script>
+    <script src="../js/services/journey.js"></script>
   </body>
 </html>
