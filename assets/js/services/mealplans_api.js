@@ -17,3 +17,55 @@ const mealplanUserData = {
 const date = new Date();
 const currentDateString =
     date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+
+const meals = {
+    monday: {
+        breakfast: "",
+        snack1: "",
+        lunch: "",
+        snack2: "",
+        dinner: "",
+    },
+    tuesday: {
+        breakfast: "",
+        snack1: "",
+        lunch: "",
+        snack2: "",
+        dinner: "",
+    },
+    wednesday: {
+        breakfast: "",
+        snack1: "",
+        lunch: "",
+        snack2: "",
+        dinner: "",
+    },
+    thursday: {
+        breakfast: "",
+        snack1: "",
+        lunch: "",
+        snack2: "",
+        dinner: "",
+    },
+    friday: {
+        breakfast: "",
+        snack1: "",
+        lunch: "",
+        snack2: "",
+        dinner: "",
+    },
+    saturday: {
+        breakfast: "",
+        snack1: "",
+        lunch: "",
+        snack2: "",
+        dinner: "",
+    },
+    sunday: {
+        breakfast: "",
+        snack1: "",
+        lunch: "",
+        snack2: "",
+        dinner: "",
+    },
+};
