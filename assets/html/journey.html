@@ -4,11 +4,13 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="../css/bmi.css" />
-        <title>bmi</title>
+        <link rel="stylesheet" href="../css/theme.css" />
+        <link rel="stylesheet" href="../css/landing.css" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <title>Fitness LIND - One place for all your fitness goals.</title>
     </head>
-    <body>
+    <body class="bg-emerald-100">
+        <!--Navigation-->
         <header class="">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <svg viewBox="0 0 320 360" width="150" class="mx-auto py-3">
@@ -283,151 +285,353 @@
                 </nav>
             </div>
         </header>
-        <h1>Learn how to live a healthy lifestyle</h1>
-        <div class="form-container flex">
-            <div>
-                <form action="#">
-                    <div class="wrapper">
-                        <h2>About you?</h2>
-                        <div class="flex">
-                            <div class="flex">
-                                <input
-                                    type="radio"
-                                    id="male"
-                                    value="male"
-                                    name="gender"
-                                />
-                                <label for="male">Male</label>
-                            </div>
-                            <div class="flex">
-                                <input
-                                    type="radio"
-                                    id="female"
-                                    value="female"
-                                    name="gender"
-                                />
-                                <label for="female">Female</label>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <input id="age" name="age" placeholder="Age" />
-                            <select
-                                id="height"
-                                name="feet"
-                                aria-label="Height"
-                                data-error-message="Please enter a value for feet."
-                                placeholder="Ft"
-                                required="required"
-                            >
-                                <option
-                                    name="feet"
-                                    value=""
-                                    selected="selected"
-                                >
-                                    Height Ft.
-                                </option>
-                                <option name="feet" value="3">3 ft</option>
-                                <option name="feet" value="4">4 ft</option>
-                                <option name="feet" value="5">5 ft</option>
-                                <option name="feet" value="6">6 ft</option>
-                                <option name="feet" value="7">7 ft</option>
-                                <option name="feet" value="8">8 ft</option>
-                            </select>
 
-                            <select
-                                id="inches"
-                                name="inches"
-                                aria-label="Inches"
-                                data-error-message="Please enter a value for inches."
-                                placeholder="In"
-                                required="required"
-                            >
-                                <option
-                                    name="inches"
-                                    value=""
-                                    selected="selected"
-                                    disabled="disabled"
-                                >
-                                    In.
-                                </option>
-                                <option name="inches" value="0">0 in</option>
-                                <option name="inches" value="1">1 in</option>
-                                <option name="inches" value="2">2 in</option>
-                                <option name="inches" value="3">3 in</option>
-                                <option name="inches" value="4">4 in</option>
-                                <option name="inches" value="5">5 in</option>
-                                <option name="inches" value="6">6 in</option>
-                                <option name="inches" value="7">7 in</option>
-                                <option name="inches" value="8">8 in</option>
-                                <option name="inches" value="9">9 in</option>
-                                <option name="inches" value="10">10 in</option>
-                                <option name="inches" value="11">11 in</option>
-                            </select>
-                        </div>
+        <!--Main-->
+        <main>
+            <form class="mx-auto max-w-2xl px-4 mb-6" action="">
+                <h1
+                    class="mx-auto max-w-3xl font-display text-2xl font-medium text-emerald-700 sm:text-4xl mb-6"
+                >
+                    Personalize Journey
+                </h1>
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 mb-6 w-full group">
+                        <label
+                            for="first-name"
+                            class="block mb-2 text-sm font-medium text-emerald-800"
+                            >First Name</label
+                        >
                         <input
-                            id="weight"
-                            name="weight"
-                            data-error-message="Please enter a valid current weight."
-                            placeholder="Current Weight lbs"
-                            type="number"
-                            required="required"
-                            aria-label="Current weight"
+                            type="text"
+                            id="first-name"
+                            class="border-2 border-emerald-700 text-emerald-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="Martin"
+                            required
                         />
-
-                        <h3>How physically active are you?</h3>
-
-                        <div class="flex">
-                            <div class="flex">
-                                <input
-                                    type="radio"
-                                    id="Very Active"
-                                    value="Very Active"
-                                    name="excercise"
-                                />
-                                <label for="Very Active">Very Active</label>
-                            </div>
-                            <div class="flex">
-                                <input
-                                    type="radio"
-                                    id="Moderate Activity"
-                                    value="Moderate Activity"
-                                    name="excercise"
-                                />
-                                <label for="Moderate Activity"
-                                    >Moderate Activity</label
-                                >
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <div class="flex">
-                                <input
-                                    type="radio"
-                                    id="Light Activity"
-                                    value="Light Activity"
-                                    name="excercise"
-                                />
-                                <label>Light Activity</label>
-                            </div>
-                            <div class="flex">
-                                <input
-                                    type="radio"
-                                    id="Sedentary"
-                                    value="Sedentary"
-                                    name="excercise"
-                                />
-                                <label>Sedentary</label>
-                            </div>
-                        </div>
-                        <button>Calculate</button>
                     </div>
-                </form>
-            </div>
-            <div>
-                <h4>Fitness LIND healthy lifestyle recommendations</h4>
-                <p class="recommendation">recommendation</p>
-            </div>
-        </div>
+                    <div class="relative z-0 mb-6 w-full group">
+                        <label
+                            for="last-name"
+                            class="block mb-2 text-sm font-medium text-emerald-800"
+                            >Last Name</label
+                        >
+                        <input
+                            type="text"
+                            id="last-name"
+                            class="border-2 border-emerald-700 text-emerald-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="Miller"
+                            required
+                        />
+                    </div>
+                </div>
 
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 mb-6 w-full group">
+                        <label
+                            for="age"
+                            class="block mb-2 text-sm font-medium text-emerald-800"
+                            >Age</label
+                        >
+                        <input
+                            type="number"
+                            id="age"
+                            class="border-2 border-emerald-700 text-emerald-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="36"
+                            required
+                        />
+                    </div>
+                    <div class="relative z-0 mb-6 w-full group">
+                        <label
+                            for="gender"
+                            class="block mb-2 text-sm font-medium text-emerald-800"
+                            >Select your gender</label
+                        >
+                        <select
+                            id="gender"
+                            class="border-2 border-emerald-700 text-emerald-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        >
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 mb-6 w-full group">
+                        <label
+                            for="height"
+                            class="block mb-2 text-sm font-medium text-emerald-800"
+                            >Height (cm)</label
+                        >
+                        <input
+                            type="number"
+                            id="height"
+                            class="border-2 border-emerald-700 text-emerald-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="180"
+                            required
+                        />
+                    </div>
+                    <div class="relative z-0 mb-6 w-full group">
+                        <label
+                            for="weight"
+                            class="block mb-2 text-sm font-medium text-emerald-800"
+                            >Weight (kg)</label
+                        >
+                        <input
+                            type="number"
+                            id="weight"
+                            class="border-2 border-emerald-700 text-emerald-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="70"
+                            required
+                        />
+                    </div>
+                </div>
+
+                <fieldset>
+                    <legend
+                        class="block mt-2 mb-2 text-sm font-medium text-emerald-800"
+                    >
+                        How Active Are You?
+                    </legend>
+
+                    <div class="flex items-center mb-4">
+                        <input
+                            id="body-type-option-1"
+                            type="radio"
+                            name="body-type"
+                            value="Sedentary"
+                            class="body-type-option w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <label
+                            for="body-type-option-1"
+                            class="block ml-2 text-sm font-medium text-emerald-900"
+                        >
+                            Sedentary
+                        </label>
+                    </div>
+
+                    <div class="flex items-center mb-4">
+                        <input
+                            id="body-type-option-2"
+                            type="radio"
+                            name="body-type"
+                            value="Light Activity"
+                            class="body-type-option w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <label
+                            for="body-type-option-2"
+                            class="block ml-2 text-sm font-medium text-emerald-900"
+                        >
+                            Light Activity
+                        </label>
+                    </div>
+
+                    <div class="flex items-center mb-4">
+                        <input
+                            id="body-type-option-3"
+                            type="radio"
+                            name="body-type"
+                            value="Moderate Activity"
+                            class="body-type-option w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <label
+                            for="body-type-option-3"
+                            class="block ml-2 text-sm font-medium text-emerald-900"
+                        >
+                            Moderate Activity
+                        </label>
+                    </div>
+
+                    <div class="flex items-center mb-4">
+                        <input
+                            id="body-type-option-4"
+                            type="radio"
+                            name="body-type"
+                            value="Very Active"
+                            class="body-type-option w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <label
+                            for="body-type-option-3"
+                            class="block ml-2 text-sm font-medium text-emerald-900"
+                        >
+                            Very Active
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="relative z-0 mb-6 w-full group">
+                    <label
+                        for="weight-goal"
+                        class="block mb-2 text-sm font-medium text-emerald-800"
+                        >Select your goal</label
+                    >
+                    <select
+                        id="weight-goal"
+                        class="border-2 border-emerald-700 text-emerald-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    >
+                        <option value="gain">Gain Muscle</option>
+                        <option value="lose">Lose Weight</option>
+                    </select>
+                </div>
+
+                <div class="block mb-2 text-sm font-medium text-emerald-800">
+                    Select your food preferences
+                </div>
+                <div
+                    class="relative z-0 mb-6 w-full group grid grid-cols-2 md:grid-cols-3 gap-2 gap-x-6 justify-center"
+                >
+                    <label class="flex gap-2" for="celery-free">
+                        <input
+                            type="checkbox"
+                            id="celery-free"
+                            name="celery-free"
+                            value="celery-free"
+                        />Celery free
+                    </label>
+                    <label class="flex gap-2" for="crustacean-free"
+                        ><input
+                            type="checkbox"
+                            id="crustacean-free"
+                            name="crustacean-free"
+                            value="crustacean-free"
+                        />Crustacean free</label
+                    >
+                    <label class="flex gap-2" for="dairy-free"
+                        ><input
+                            type="checkbox"
+                            id="dairy-free"
+                            name="dairy-free"
+                            value="dairy-free"
+                        />Dairy free</label
+                    >
+                    <label class="flex gap-2" for="fish-free"
+                        ><input
+                            type="checkbox"
+                            id="fish-free"
+                            name="fish-free"
+                            value="fish-free"
+                        />Fish free</label
+                    >
+                    <label class="flex gap-2" for="gluten-free"
+                        ><input
+                            type="checkbox"
+                            id="gluten-free"
+                            name="gluten-free"
+                            value="gluten-free"
+                        />Gluten free</label
+                    >
+                    <label class="flex gap-2" for="immuno-supportive"
+                        ><input
+                            type="checkbox"
+                            id="immuno-supportive"
+                            name="immuno-supportive"
+                            value="immuno-supportive"
+                        />Immuno supportive</label
+                    >
+                    <label class="flex gap-2" for="keto-friendly"
+                        ><input
+                            type="checkbox"
+                            id="keto-friendly"
+                            name="keto-friendly"
+                            value="keto-friendly"
+                        />Keto friendly</label
+                    >
+                    <label class="flex gap-2" for="kidney-friendly"
+                        ><input
+                            type="checkbox"
+                            id="kidney-friendly"
+                            name="kidney-friendly"
+                            value="kidney-friendly"
+                        />Kidney friendly</label
+                    >
+                    <label class="flex gap-2" for="low-sugar">
+                        <input
+                            type="checkbox"
+                            id="accept"
+                            name="accept"
+                            value="kosher"
+                        />Kosher
+                    </label>
+                    <label class="flex gap-2" for="low-sugar">
+                        <input
+                            type="checkbox"
+                            id="low-sugar"
+                            name="low-sugar"
+                            value="low-sugar"
+                        />Low sugar
+                    </label>
+                    <label class="flex gap-2" for="peanut-free"
+                        ><input
+                            type="checkbox"
+                            id="peanut-free"
+                            name="peanut-free"
+                            value="peanut-free"
+                        />Peanut free</label
+                    >
+                    <label class="flex gap-2" for="pescatarian">
+                        <input
+                            type="checkbox"
+                            id="pescatarian"
+                            name="pescatarian"
+                            value="pescatarian"
+                        />Pescatarian
+                    </label>
+
+                    <label class="flex gap-2" for="pork-free">
+                        <input
+                            type="checkbox"
+                            id="pork-free"
+                            name="pork-free"
+                            value="pork-free"
+                        />Pork free
+                    </label>
+
+                    <label class="flex gap-2" for="red-meat-free"
+                        ><input
+                            type="checkbox"
+                            id="red-meat-free"
+                            name="red-meat-free"
+                            value="red-meat-free"
+                        />Red meat free</label
+                    >
+                    <label class="flex gap-2" for="sesame-free"
+                        ><input
+                            type="checkbox"
+                            id="sesame-free"
+                            name="sesame-free"
+                            value="sesame-free"
+                        />Sesame free</label
+                    >
+                    <label class="flex gap-2" for="shellfish-free"
+                        ><input
+                            type="checkbox"
+                            id="shellfish-free"
+                            name="shellfish-free"
+                            value="shellfish-free"
+                        />Shellfish free</label
+                    >
+                    <label class="flex gap-2" for="soy-free"
+                        ><input
+                            type="checkbox"
+                            id="soy-free"
+                            name="soy-free"
+                            value="soy-free"
+                        />Soy free</label
+                    >
+                </div>
+
+                <button
+                    type="submit"
+                    id="personalized-workout"
+                    class="rounded-full text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                >
+                    Submit
+                </button>
+            </form>
+        </main>
+
+        <!--Footer-->
         <footer class="text-center text-white">
             <div class="pt-2">
                 <div class="flex justify-center mb-2">
@@ -491,11 +695,15 @@
                 <a class="text-gray-100" href="/">Group Project One</a>
             </div>
         </footer>
+        <!-- 3rd party Libraries -->
+        <script src="https://cdn.tailwindcss.com"></script>
         <script
             src="https://code.jquery.com/jquery-3.6.1.js"
             integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
             crossorigin="anonymous"
         ></script>
-        <script src="../js/bmi.js"></script>
+        <script src="../js/dispatcher/journey.js"></script>
+        <script src="../js/ui/journey.js"></script>
+        <script src="../js/services/journey.js"></script>
     </body>
 </html>
