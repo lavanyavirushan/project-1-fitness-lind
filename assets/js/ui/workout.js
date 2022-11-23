@@ -1,17 +1,14 @@
 function workoutsUI(results){
-
   results.forEach(result => {
-        console.log(result)
         const workoutItem = workoutHTML(result.name, result.type, result.difficulty, result.muscle, result.instructions);
         $("#workouts").append(workoutItem);
   });
-
-  
 }
 
 function workoutHTML(workoutName, workoutType, workoutDifficulty, workoutMuscle, workoutInstructions){
-    return `<article
-    class="p-4 sm:p-6 lg:p-4 xl:p-6 space-x-4 items-start sm:space-x-6 lg:space-x-4 xl:space-x-6 flex">
+    return `<article 
+    onclick="selectWorkoutVideo('${workoutName}', '${workoutType}', '${workoutDifficulty}', '${workoutMuscle}', '${workoutInstructions}')"
+    class="p-4 sm:p-6 lg:p-4 xl:p-6 space-x-4 items-start sm:space-x-6 lg:space-x-4 xl:space-x-6 flex cursor-pointer">
     <img
       src="https://cdn.muscleandstrength.com/sites/default/files/field/image/article/chest_thumb.jpg"
       loading="lazy"
