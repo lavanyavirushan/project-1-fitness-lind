@@ -9,7 +9,7 @@ const EDAMAM_API_APP_KEY = "9571bca2f3520f672c7afcdda913fbf7";
 // Range for each meal would be 10% of the callories per meal. For example we have 2000 cals per day, so its 600 cals for lunch and the range would be 540-660 cals for lunch
 
 const mealplanUserData = {
-    calloriesPerDay: "2000",
+    caloriesPerDay: "2000",
     preferences: ["pork-free", "peanut-free", "fish-free"],
 };
 
@@ -69,3 +69,20 @@ const meals = {
         dinner: "",
     },
 };
+function generateFetchURLs(mealplanUserData) {
+    const URLBody = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${EDAMAM_API_APP_ID}&app_key=${EDAMAM_API_APP_KEY}&`;
+    const cals = mealplanUserData.caloriesPerDay;
+    const prefs = mealplanUserData.preferences;
+    const breakfastCalsRange = [cals * 0.162, cals * 0.198];
+    const snackCalsRange = [cals * 0.099, cals * 0.121];
+    const lunchDinnerCalsRange = [cals * 0.27, cals * 0.33];
+    const URLs = {
+        breakfast: `${URLBody}`,
+    };
+}
+// fetch("http://example.com/movies.json")
+//     .then((response) => response.json())
+//     .then((data) => console.log(data))
+//     .catch((error) => {
+//         console.error("Error:", error);
+//     });
