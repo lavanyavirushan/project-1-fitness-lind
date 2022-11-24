@@ -10,7 +10,7 @@ const EDAMAM_API_APP_KEY = "9571bca2f3520f672c7afcdda913fbf7";
 
 const mealplanUserData = {
     caloriesPerDay: "2000",
-    preferences: ["pork-free", "peanut-free", "fish-free"],
+    preferences: ["pork-free", "fish-free"],
     goal: "gain",
 };
 
@@ -93,26 +93,45 @@ function generateFetchURLs(mealplanUserData) {
     return URLs;
 }
 
-function fetchURLs(URLs) {
-    let promises = [];
+// function fetchURLs(URLs) {
+//     let promises = [];
+//     const mealsJSON = {};
+//     for (const meal in URLs) {
+//         console.log(meal);
+//         console.log(URLs[meal]);
+//         promises.push(
+//             fetch(URLs[meal])
+//                 .then((res) => res.json())
+//                 .then((data) => {
+//                     mealsJSON[meal] = data;
+//                 })
+
+//                 .catch((error) => {
+//                     console.log(error.message);
+//                     mealsJSON[meal] = "fetch error";
+//                 })
+//         );
+//     }
+//     Promise.all(promises).then(() => mealsJSON);
+// }
+
+async function fetchURLs(URLs) {
     const mealsJSON = {};
     for (const meal in URLs) {
-        console.log(URLs[meal]);
-        promises.push(
-            fetch(URLs[meal])
-                .then((res) => {
-                    return res.json();
-                })
-                .then((res) => {
-                    mealsJSON[meal] = res;
-                })
-                .catch((error) => {
-                    console.log(error.message);
-                    mealsJSON[meal] = "fetch error";
-                })
-        );
+        try {
+            let p1 = await fetch(URLs[meal]);
+            let p2 = await p1.json();
+            mealsJSON[meal] = p2;
+        } catch (error) {
+            console.log(error.message);
+            mealsJSON[meal] = "fetch error";
+        }
     }
-    Promise.all(promises).then(function () {
-        return mealsJSON;
-    });
+    return mealsJSON;
 }
+// console.log("CALLING FETCHURLS");
+// console.log(fetchURLs(generateFetchURLs(mealplanUserData)));
+function test() {
+    fetchURLs(generateFetchURLs(mealplanUserData)).then((a) => console.log(a));
+}
+test();
