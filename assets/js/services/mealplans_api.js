@@ -19,57 +19,27 @@ const date = new Date();
 const currentDateString =
     date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 
-const meals = {
-    monday: {
-        breakfast: "",
-        snack1: "",
-        lunch: "",
-        snack2: "",
-        dinner: "",
-    },
-    tuesday: {
-        breakfast: "",
-        snack1: "",
-        lunch: "",
-        snack2: "",
-        dinner: "",
-    },
-    wednesday: {
-        breakfast: "",
-        snack1: "",
-        lunch: "",
-        snack2: "",
-        dinner: "",
-    },
-    thursday: {
-        breakfast: "",
-        snack1: "",
-        lunch: "",
-        snack2: "",
-        dinner: "",
-    },
-    friday: {
-        breakfast: "",
-        snack1: "",
-        lunch: "",
-        snack2: "",
-        dinner: "",
-    },
-    saturday: {
-        breakfast: "",
-        snack1: "",
-        lunch: "",
-        snack2: "",
-        dinner: "",
-    },
-    sunday: {
-        breakfast: "",
-        snack1: "",
-        lunch: "",
-        snack2: "",
-        dinner: "",
-    },
-};
+// if (localStorage.getItem("meals")) {
+//     const meals = localStorage.getItem("meals");
+//     console.log(meals);
+// } else {
+//     const meals = {
+//         monday: {},
+//         tuesday: {},
+//         wednesday: {},
+//         thursday: {},
+//         friday: {},
+//         saturday: {},
+//         sunday: {
+//             // breakfast: "",
+//             // snack1: "",
+//             // lunch: "",
+//             // snack2: "",
+//             // dinner: "",
+//         },
+//     };
+//     addRecipesToObject(mealplanUserData);
+// }
 
 function generateFetchURLs(mealplanUserData) {
     const cals = mealplanUserData.caloriesPerDay;
@@ -81,39 +51,17 @@ function generateFetchURLs(mealplanUserData) {
         mealplanUserData.goal === "gain" ? "high-protein" : "high-fiber";
     const URLBody = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${EDAMAM_API_APP_ID}&app_key=${EDAMAM_API_APP_KEY}&random=true&health=alcohol-free&${prefs
         .map((pref) => `health=${pref}`)
-        .join("&")}&diet=${diet}`;
+        .join("&")}`;
 
     const URLs = {
         breakfast: `${URLBody}&mealType=Breakfast&calories=${breakfastCalsRange[0]}-${breakfastCalsRange[1]}`,
-        snack1: `${URLBody}&mealType=Snack&calories=${snackCalsRange[0]}-${snackCalsRange[1]}`,
-        lunch: `${URLBody}&mealType=Lunch&calories=${lunchDinnerCalsRange[0]}-${lunchDinnerCalsRange[1]}`,
-        snack2: `${URLBody}&mealType=Snack&calories=${snackCalsRange[0]}-${snackCalsRange[1]}`,
-        dinner: `${URLBody}&mealType=Dinner&calories=${lunchDinnerCalsRange[0]}-${lunchDinnerCalsRange[1]}`,
+        snack1: `${URLBody}&mealType=Snack&calories=${snackCalsRange[0]}-${snackCalsRange[1]}&diet=${diet}`,
+        lunch: `${URLBody}&mealType=Lunch&calories=${lunchDinnerCalsRange[0]}-${lunchDinnerCalsRange[1]}&diet=${diet}`,
+        snack2: `${URLBody}&mealType=Snack&calories=${snackCalsRange[0]}-${snackCalsRange[1]}&diet=${diet}`,
+        dinner: `${URLBody}&mealType=Dinner&calories=${lunchDinnerCalsRange[0]}-${lunchDinnerCalsRange[1]}&diet=${diet}`,
     };
     return URLs;
 }
-
-// function fetchURLs(URLs) {
-//     let promises = [];
-//     const mealsJSON = {};
-//     for (const meal in URLs) {
-//         console.log(meal);
-//         console.log(URLs[meal]);
-//         promises.push(
-//             fetch(URLs[meal])
-//                 .then((res) => res.json())
-//                 .then((data) => {
-//                     mealsJSON[meal] = data;
-//                 })
-
-//                 .catch((error) => {
-//                     console.log(error.message);
-//                     mealsJSON[meal] = "fetch error";
-//                 })
-//         );
-//     }
-//     Promise.all(promises).then(() => mealsJSON);
-// }
 
 async function fetchURLs(URLs) {
     const mealsJSON = {};
@@ -131,7 +79,25 @@ async function fetchURLs(URLs) {
 }
 // console.log("CALLING FETCHURLS");
 // console.log(fetchURLs(generateFetchURLs(mealplanUserData)));
-function test() {
-    fetchURLs(generateFetchURLs(mealplanUserData)).then((a) => console.log(a));
+// function test() {
+//     fetchURLs(generateFetchURLs(mealplanUserData)).then((a) => console.log(a));
+// }
+// test();
+
+function addRecipesToObject(mealplanUserData) {
+    fetchURLs(generateFetchURLs(mealplanUserData)).then((mealsResponse) => {
+        let counter = 0;
+        mealsCopy = { ...meals };
+        for (const mealType in mealsResponse) {
+            for (const day in mealsCopy) {
+                mealsCopy[day][mealType] =
+                    mealsResponse[mealType].hits[counter].recipe;
+            }
+            counter++;
+        }
+        meals = mealsCopy;
+        console.log(meals);
+        localStorage.setItem("meals", JSON.stringify(meals));
+    });
 }
-test();
+addRecipesToObject(mealplanUserData);
