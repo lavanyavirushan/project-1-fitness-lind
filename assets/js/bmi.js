@@ -1,50 +1,49 @@
-const radioButtonsGenders = document.querySelectorAll(
-    "input[name ='excercise'"
-);
-let selectedGender;
+const userData = {};
 const age = document.getElementById("age");
-const height = document.getElementById("height");
-const inches = document.getElementById("inches");
 const weight = document.getElementById("weight");
 const radioButtons = document.querySelectorAll("input[name ='gender");
-let selectedExcercise;
+const radioButtonsActive = document.querySelectorAll("input[name ='excercise'");
 
 const btn = document.querySelector("button");
 btn.addEventListener("click", function () {
-    for (const radioButton of radioButtons) {
-        if (radioButton.checked) {
-            selectedExcercise = radioButton.value;
+    for (const gender of radioButtons) {
+        if (gender.checked) {
+            userData.gender = gender.value;
             break;
         }
     }
 
-    for (const radioButtonsGender of radioButtonsGenders) {
-        if (radioButtonsGender.checked) {
-            selectedGender = radioButtonsGender.value;
+    for (const activeLevel of radioButtonsActive) {
+        if (activeLevel.checked) {
+            userData.activeLeve = activeLevel.value;
             break;
         }
     }
 
-    console.log(selectedGender);
+    let x = document.getElementById("height").selectedIndex;
+    let y = document.getElementById("height").options;
+    let w = document.getElementById("inches").selectedIndex;
+    let z = document.getElementById("inches").options;
 
-    console.log(selectedExcercise);
+    const heights = Number(y[x].value + "." + z[w].value);
+    userData.height = heights;
+    userData.weight = Number(weight.value);
+
+    userData.age = Number(age.value);
+
+    console.log(userData);
 });
 
-// sample user profile according to our list
-const userData = {
-    gender: "male",
-    // unsure if age is needed because very hard to set excercise list according to age and to body type
-    age: "35",
+function init() {
+    // localStorage.setItem("userData", JSON.stringify(userData));
 
-    // used to to calculate AMR for number of calories to consume
-    activeLeve: "Active",
-    // bodyType: "endomorph", // ectomorph, endomorph, mesomorph (to avoid rude namings)
-    weight: 250, // in kg
-    height: 74, // in cm
-    goal: "gain", // lose, gain
-    place: "home", // home or gym for picking equipment for excercises
-};
-localStorage.setItem("userData", JSON.stringify(userData));
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    calculateBMI(userData);
+    calculateAMR(userData);
+}
+// call calculateBMI
+
+init();
 
 // function calculate BMR for daily calores count based on if you are a man or woman
 
@@ -94,16 +93,17 @@ function calculateBMI(userData) {
     let recommendation;
     // bmi in pounds and inches
     let BMI = (userData.weight / userData.height ** 2) * 703;
+
     console.log(BMI);
     if (BMI < 18.5) {
         recommendation = ` 
-        To ensure a healthy lifestyle, Fitness LIND recommends increasing your intake of more nutrient-rich foods like meat, fish breads, pastas, fruits, vegetables and dairy products.  Based on your BMI of  ______  
-        You are considered ________ Fitness LIND recommends you support a healthy lifestyle by 
+        To ensure a healthy lifestyle, Fitness LIND recommends increasing your intake of more nutrient-rich foods like meat, fish breads, pastas, fruits, vegetables and dairy products.  Based on your BMI of  (${BMI}) 
+        You are considered (underweight) Fitness LIND recommends you support a healthy lifestyle by 
         `;
         $(".recommendation").text(recommendation);
     } else if (BMI > 18.5 && BMI < 24.9) {
-        recommendation = `To ensure a healthy lifestyle, Fitness LIND recommends setting goals to maintain a healthy diet and exercise routine. Based on your BMI of  ______
-            You are considered ________ Fitness LIND recommends you support a healthy lifestyle by 
+        recommendation = `To ensure a healthy lifestyle, Fitness LIND recommends setting goals to maintain a healthy diet and exercise routine. Based on your BMI of  (${BMI})
+            You are considered (normal or Healthy) Fitness LIND recommends you support a healthy lifestyle by 
              Healthy eating
             1.	Eating plenty of fruits and vegetables.
             2.	Choosing foods that are low in sugars, saturated fats, and sodium.
@@ -125,6 +125,3 @@ function calculateBMI(userData) {
         $(".recommendation").text(recommendation);
     }
 }
-
-// call calculateBMI
-calculateBMI(userData);
