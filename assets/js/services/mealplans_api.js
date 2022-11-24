@@ -18,6 +18,21 @@ const mealplanUserData = {
 const date = new Date();
 const currentDateString =
     date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+const meals = {
+    monday: {},
+    tuesday: {},
+    wednesday: {},
+    thursday: {},
+    friday: {},
+    saturday: {},
+    sunday: {
+        // breakfast: "",
+        // snack1: "",
+        // lunch: "",
+        // snack2: "",
+        // dinner: "",
+    },
+};
 
 // if (localStorage.getItem("meals")) {
 //     const meals = localStorage.getItem("meals");
