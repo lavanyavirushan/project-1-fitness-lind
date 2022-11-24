@@ -11,6 +11,7 @@ const EDAMAM_API_APP_KEY = "9571bca2f3520f672c7afcdda913fbf7";
 const mealplanUserData = {
     caloriesPerDay: "2000",
     preferences: ["pork-free", "peanut-free", "fish-free"],
+    goal: "gain",
 };
 
 // mealplan will be updated daily
@@ -69,20 +70,49 @@ const meals = {
         dinner: "",
     },
 };
+
 function generateFetchURLs(mealplanUserData) {
-    const URLBody = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${EDAMAM_API_APP_ID}&app_key=${EDAMAM_API_APP_KEY}&`;
     const cals = mealplanUserData.caloriesPerDay;
-    const prefs = mealplanUserData.preferences;
+    const prefs = [...mealplanUserData.preferences];
     const breakfastCalsRange = [cals * 0.162, cals * 0.198];
     const snackCalsRange = [cals * 0.099, cals * 0.121];
     const lunchDinnerCalsRange = [cals * 0.27, cals * 0.33];
+    const diet =
+        mealplanUserData.goal === "gain" ? "high-protein" : "high-fiber";
+    const URLBody = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${EDAMAM_API_APP_ID}&app_key=${EDAMAM_API_APP_KEY}&random=true&health=alcohol-free&${prefs
+        .map((pref) => `health=${pref}`)
+        .join("&")}&diet=${diet}`;
+
     const URLs = {
-        breakfast: `${URLBody}`,
+        breakfast: `${URLBody}&mealType=Breakfast&calories=${breakfastCalsRange[0]}-${breakfastCalsRange[1]}`,
+        snack1: `${URLBody}&mealType=Snack&calories=${snackCalsRange[0]}-${snackCalsRange[1]}`,
+        lunch: `${URLBody}&mealType=Lunch&calories=${lunchDinnerCalsRange[0]}-${lunchDinnerCalsRange[1]}`,
+        snack2: `${URLBody}&mealType=Snack&calories=${snackCalsRange[0]}-${snackCalsRange[1]}`,
+        dinner: `${URLBody}&mealType=Dinner&calories=${lunchDinnerCalsRange[0]}-${lunchDinnerCalsRange[1]}`,
     };
+    return URLs;
 }
-// fetch("http://example.com/movies.json")
-//     .then((response) => response.json())
-//     .then((data) => console.log(data))
-//     .catch((error) => {
-//         console.error("Error:", error);
-//     });
+
+function fetchURLs(URLs) {
+    let promises = [];
+    const mealsJSON = {};
+    for (const meal in URLs) {
+        console.log(URLs[meal]);
+        promises.push(
+            fetch(URLs[meal])
+                .then((res) => {
+                    return res.json();
+                })
+                .then((res) => {
+                    mealsJSON[meal] = res;
+                })
+                .catch((error) => {
+                    console.log(error.message);
+                    mealsJSON[meal] = "fetch error";
+                })
+        );
+    }
+    Promise.all(promises).then(function () {
+        return mealsJSON;
+    });
+}
