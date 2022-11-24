@@ -18,7 +18,7 @@ const mealplanUserData = {
 const date = new Date();
 const currentDateString =
     date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-const meals = {
+let meals = {
     monday: {},
     tuesday: {},
     wednesday: {},
