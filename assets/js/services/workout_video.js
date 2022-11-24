@@ -1,9 +1,18 @@
 const workout_video = "workout";
 
-function setWorkoutVideo(item){
+/**
+ * set the user selected video to localstorage
+ * @param {*} item 
+ * @returns 
+ */
+function setSelectedWorkout(item){
     return localStorage.setItem(workout_video, JSON.stringify(item));
 }
 
-function getWorkoutVideo(){
+/**
+ * retrives the workout key from the localstorage
+ * @returns {*}
+ */
+function getSelectedWorkout(){
     return JSON.parse(localStorage.getItem(workout_video));
 }
