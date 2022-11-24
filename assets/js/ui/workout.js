@@ -8,7 +8,7 @@ function workoutsUI(results){
 function workoutHTML(workoutName, workoutType, workoutDifficulty, workoutMuscle, workoutInstructions){
     return `<article 
     onclick="selectWorkoutVideo('${workoutName}', '${workoutType}', '${workoutDifficulty}', '${workoutMuscle}', '${workoutInstructions}')"
-    class="p-4 sm:p-6 lg:p-4 xl:p-6 space-x-4 items-start sm:space-x-6 lg:space-x-4 xl:space-x-6 flex cursor-pointer">
+    class="p-4 sm:p-6 lg:p-4 xl:p-6 space-x-4 items-start sm:space-x-6 lg:space-x-4 xl:space-x-6 flex cursor-pointer hover:bg-emerald-700">
     <img
       src="https://cdn.muscleandstrength.com/sites/default/files/field/image/article/chest_thumb.jpg"
       loading="lazy"
