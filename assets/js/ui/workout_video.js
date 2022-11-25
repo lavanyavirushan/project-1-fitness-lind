@@ -69,7 +69,7 @@ function workoutVideoHTML(workout, video){
       </dl>
 
       <a
-        href="../html/workout_new.html"
+        href="../html/workout.html"
         class="py-2 rounded-full mt-4 bg-emerald-300 pl-4 pr-4 float-right mb-6"
       >
         Go Back
