@@ -18,43 +18,31 @@ const mealplanUserData = {
 const date = new Date();
 const currentDateString =
     date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-let meals = {
-    monday: {},
-    tuesday: {},
-    wednesday: {},
-    thursday: {},
-    friday: {},
-    saturday: {},
-    sunday: {
-        // breakfast: "",
-        // snack1: "",
-        // lunch: "",
-        // snack2: "",
-        // dinner: "",
-    },
-};
 
-// if (localStorage.getItem("meals")) {
-//     const meals = localStorage.getItem("meals");
-//     console.log(meals);
-// } else {
-//     const meals = {
-//         monday: {},
-//         tuesday: {},
-//         wednesday: {},
-//         thursday: {},
-//         friday: {},
-//         saturday: {},
-//         sunday: {
-//             // breakfast: "",
-//             // snack1: "",
-//             // lunch: "",
-//             // snack2: "",
-//             // dinner: "",
-//         },
-//     };
-//     addRecipesToObject(mealplanUserData);
-// }
+if (
+    localStorage.getItem("meals") &&
+    JSON.parse(localStorage.getItem("meals"))
+) {
+    let meals = JSON.parse(localStorage.getItem("meals"));
+    console.log(meals);
+} else {
+    let meals = {
+        monday: {},
+        tuesday: {},
+        wednesday: {},
+        thursday: {},
+        friday: {},
+        saturday: {},
+        sunday: {
+            // breakfast: "",
+            // snack1: "",
+            // lunch: "",
+            // snack2: "",
+            // dinner: "",
+        },
+    };
+    addRecipesToObject(mealplanUserData);
+}
 
 function generateFetchURLs(mealplanUserData) {
     const cals = mealplanUserData.caloriesPerDay;
@@ -111,8 +99,8 @@ function addRecipesToObject(mealplanUserData) {
             counter++;
         }
         meals = mealsCopy;
+        meals.currentDate = date;
         console.log(meals);
         localStorage.setItem("meals", JSON.stringify(meals));
     });
 }
-addRecipesToObject(mealplanUserData);
