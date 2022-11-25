@@ -7,7 +7,15 @@ const EDAMAM_API_APP_KEY = "9571bca2f3520f672c7afcdda913fbf7";
 
 // Callories division is: 18% for breakfast, 30% for lunch, 30% for dinner, 11% for snack 1, 11% for snack 2.
 // Range for each meal would be 10% of the callories per meal. For example we have 2000 cals per day, so its 600 cals for lunch and the range would be 540-660 cals for lunch
-
+const weekdays = [
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+];
 const mealplanUserData = {
     caloriesPerDay: "2000",
     preferences: ["pork-free", "fish-free"],
@@ -16,21 +24,26 @@ const mealplanUserData = {
 
 // mealplan will be updated daily
 const date = new Date();
+let meals = {};
 const currentDateString =
     date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 
 // check if there is stored data in localStorage and if data is less than 7 days old
-if (
-    localStorage.getItem("meals") &&
-    (date.getTime() -
-        JSON.parse(localStorage.getItem("meals")).currentDate.getTime()) /
-        86400000 <
-        7
-) {
-    let meals = JSON.parse(localStorage.getItem("meals"));
+let isDataOutdated;
+if (localStorage.getItem("meals")) {
+    isDataOutdated =
+        (date.getTime() -
+            JSON.parse(localStorage.getItem("meals")).currentDate) /
+            86400000 >
+        7;
+}
+if (localStorage.getItem("meals") && !isDataOutdated) {
+    console.log("meal plan data is up to date");
+    meals = JSON.parse(localStorage.getItem("meals"));
     console.log(meals);
+    addRecipesToDiv(date.getDay());
 } else {
-    let meals = {
+    meals = {
         monday: {},
         tuesday: {},
         wednesday: {},
@@ -45,7 +58,8 @@ if (
             // dinner: "",
         },
     };
-    // addRecipesToObject(mealplanUserData);
+    console.log(meals);
+    addRecipesToObject(mealplanUserData);
 }
 
 function generateFetchURLs(mealplanUserData) {
@@ -95,34 +109,28 @@ function addRecipesToObject(mealplanUserData) {
     fetchURLs(generateFetchURLs(mealplanUserData))
         .then((mealsResponse) => {
             let counter = 0;
-            mealsCopy = { ...meals };
             for (const mealType in mealsResponse) {
-                for (const day in mealsCopy) {
-                    mealsCopy[day][mealType] =
+                for (const day in meals) {
+                    meals[day][mealType] =
                         mealsResponse[mealType].hits[counter].recipe;
                 }
                 counter++;
             }
-            meals = mealsCopy;
-            meals.currentDate = date;
+            console.log(meals);
+            meals.currentDate = date.getTime();
             console.log(meals);
             localStorage.setItem("meals", JSON.stringify(meals));
         })
         .then(() => {
-            addRecipesToDiv();
+            addRecipesToDiv(date.getDay());
         });
 }
-
-function addRecipesToDiv() {
-    for (mealType in meals) {
-        $("#meals").append(
-            `
-            <div>
-            <div>
-
-            </div>
-            </div>
-            `
-        );
-    }
+function addRecipesToDiv(day) {
+    console.log("started adding divs");
+    const { breakfast, lunch, snack1, snack2, dinner } =
+        meals[`${weekdays[day]}`];
+    console.log(breakfast);
+    $(".breakfast > img").attr("src", `${breakfast.images.THUMBNAIL.url}`);
+    $(".breakfast-recipe-name").text(`${breakfast.label}`);
+    $(".breakfast-recipe-name").text(`${breakfast.label}`);
 }
