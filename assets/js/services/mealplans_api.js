@@ -19,9 +19,13 @@ const date = new Date();
 const currentDateString =
     date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 
+// check if there is stored data in localStorage and if data is less than 7 days old
 if (
     localStorage.getItem("meals") &&
-    JSON.parse(localStorage.getItem("meals"))
+    (date.getTime() -
+        JSON.parse(localStorage.getItem("meals")).currentDate.getTime()) /
+        86400000 <
+        7
 ) {
     let meals = JSON.parse(localStorage.getItem("meals"));
     console.log(meals);
@@ -41,7 +45,7 @@ if (
             // dinner: "",
         },
     };
-    addRecipesToObject(mealplanUserData);
+    // addRecipesToObject(mealplanUserData);
 }
 
 function generateFetchURLs(mealplanUserData) {
@@ -88,19 +92,37 @@ async function fetchURLs(URLs) {
 // test();
 
 function addRecipesToObject(mealplanUserData) {
-    fetchURLs(generateFetchURLs(mealplanUserData)).then((mealsResponse) => {
-        let counter = 0;
-        mealsCopy = { ...meals };
-        for (const mealType in mealsResponse) {
-            for (const day in mealsCopy) {
-                mealsCopy[day][mealType] =
-                    mealsResponse[mealType].hits[counter].recipe;
+    fetchURLs(generateFetchURLs(mealplanUserData))
+        .then((mealsResponse) => {
+            let counter = 0;
+            mealsCopy = { ...meals };
+            for (const mealType in mealsResponse) {
+                for (const day in mealsCopy) {
+                    mealsCopy[day][mealType] =
+                        mealsResponse[mealType].hits[counter].recipe;
+                }
+                counter++;
             }
-            counter++;
-        }
-        meals = mealsCopy;
-        meals.currentDate = date;
-        console.log(meals);
-        localStorage.setItem("meals", JSON.stringify(meals));
-    });
+            meals = mealsCopy;
+            meals.currentDate = date;
+            console.log(meals);
+            localStorage.setItem("meals", JSON.stringify(meals));
+        })
+        .then(() => {
+            addRecipesToDiv();
+        });
+}
+
+function addRecipesToDiv() {
+    for (mealType in meals) {
+        $("#meals").append(
+            `
+            <div>
+            <div>
+
+            </div>
+            </div>
+            `
+        );
+    }
 }
