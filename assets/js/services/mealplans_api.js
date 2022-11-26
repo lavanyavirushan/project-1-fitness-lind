@@ -129,8 +129,22 @@ function addRecipesToDiv(day) {
     console.log("started adding divs");
     const { breakfast, lunch, snack1, snack2, dinner } =
         meals[`${weekdays[day]}`];
-    console.log(breakfast);
-    $(".breakfast > img").attr("src", `${breakfast.images.THUMBNAIL.url}`);
-    $(".breakfast-recipe-name").text(`${breakfast.label}`);
-    $(".breakfast-recipe-name").text(`${breakfast.label}`);
+    $(`.breakfast > img`).attr("src", `${breakfast.images.SMALL.url}`);
+    $(`.breakfast-recipe-name`).text(`${breakfast.label}`);
+    $(".breakfast-ingridients").html(
+        `${breakfast.ingredientLines.join("<br>")}`
+    );
+    $(`.snack1 > img`).attr("src", `${snack1.images.SMALL.url}`);
+    $(`.snack1-recipe-name`).text(`${snack1.label}`);
+    $(".snack1-ingridients").html(`${snack1.ingredientLines.join("<br>")}`);
+    $(`.lunch > img`).attr("src", `${lunch.images.SMALL.url}`);
+    $(`.lunch-recipe-name`).text(`${lunch.label}`);
+    $(".lunch-ingridients").html(`${lunch.ingredientLines.join("<br>")}`);
+    $(`.snack2 > img`).attr("src", `${snack2.images.SMALL.url}`);
+    $(`.snack2-recipe-name`).text(`${snack2.label}`);
+    $(".snack2-ingridients").html(`${snack2.ingredientLines.join("<br>")}`);
+    $(`.dinner > img`).attr("src", `${dinner.images.SMALL.url}`);
+    $(`.dinner-recipe-name`).text(`${dinner.label}`);
+    $(".dinner-ingridients").html(`${dinner.ingredientLines.join("<br>")}`);
+    console.log(breakfast.ingredientLines);
 }
