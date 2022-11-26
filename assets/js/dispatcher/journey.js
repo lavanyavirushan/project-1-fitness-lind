@@ -33,7 +33,7 @@ function init() {
     $(".recommendation-section").css("display", "block");
     $(".gender").text(userData.gender);
     $(".height").text(`${userData.height} cm`);
-    $(".weight").text(`${userData.height} kg`);
+    $(".weight").text(`${userData.weight} kg`);
     $(".age").text(userData.age);
 }
 
@@ -47,14 +47,14 @@ function calculateAMR(userData) {
 
         BMR =
             655.1 +
-            9.563 * (userData.weight / 2.205) +
+            9.563 * userData.weight +
             1.85 * userData.height -
             4.677 * userData.age;
     } else if (userData.gender === "Male") {
         //BMR For men, BMR = 66.47 + (13.75 x weight in kg) + (5.003 x height in cm) - (6.755 x age in years)
         BMR =
             66.47 +
-            13.75 * (userData.weight / 2.205) +
+            13.75 * userData.weight +
             5.003 * userData.height -
             6.755 * userData.age;
     }
@@ -101,15 +101,15 @@ function calculateBMI(userData) {
     console.log(BMI);
     if (BMI < 18.5) {
         recommendation = `
-        To ensure a healthy lifestyle, Fitness LIND recommends increasing your intake of more nutrient-rich foods like meat, fish breads, pastas, fruits, vegetables and dairy products.  Based on your BMI of  (${BMI}).  If your BMI is less than 18.5, it falls within the underweight range. Fitness LIND recommends you support a healthy lifestyle by`;
+        To ensure a healthy lifestyle, Fitness LIND recommends increasing your intake of more nutrient-rich foods like meat, fish breads, pastas, fruits, vegetables and dairy products.  Based on your BMI of  (${BMI}).  If your BMI is less than 18.5, it falls within the underweight range. Fitness LIND recommends you support a healthy lifestyle by:`;
         $(".rec-list-1").text(`
-    Eat more frequently. When you're underweight, you may feel full faster. Eat five to six smaller meals during the day rather than two or three large meals.`);
+    Eating more frequently. When you're underweight, you may feel full faster. Eat five to six smaller meals during the day rather than two or three large meals.`);
 
         $(".rec-list-2").text(
             ` Choose nutrient-rich foods. As part of an overall healthy diet, choose whole-grain breads, pastas and cereals; fruits and vegetables; dairy products; lean protein sources; and nuts and seeds. `
         );
         $(".rec-List-3").text(
-            `Maintain body weight between the recommended limits (a BMI of 18.5–25)`
+            `Maintain body weight between the recommended limits (a BMI of 18.5–25).`
         );
         $(".recommendation").text(recommendation);
         // exercise plan
@@ -117,14 +117,14 @@ function calculateBMI(userData) {
             "Exercise, especially strength training, can help you gain weight by building up your muscles. Exercise may also stimulate your appetite."
         );
     } else if (BMI > 18.5 && BMI < 24.9) {
-        recommendation = `To ensure a healthy lifestyle, Fitness LIND recommends setting goals to maintain a healthy diet and exercise routine. Based on your BMI of  (${BMI})
-        If your BMI is 18.5 to 24.9, it falls within the normal or Healthy Weight range. Fitness LIND recommends you support a healthy lifestyle by`;
+        recommendation = `To ensure a healthy lifestyle, Fitness LIND recommends setting goals to maintain a healthy diet and exercise routine. Based on your BMI of  (${BMI}).
+        If your BMI is 18.5 to 24.9, it falls within the normal or Healthy Weight range. Fitness LIND recommends you support a healthy lifestyle by:`;
         $(".rec-list-1").text(" Eating plenty of fruits and vegetables.");
         $(".rec-list-2").text(
             "Pick whole grains and lean sources of protein and dairy products."
         );
         $(".rec-list-3").text(
-            "Maintain body weight between the recommended limits (a BMI of 18.5–25) "
+            "Maintain body weight between the recommended limits (a BMI of 18.5–25) ."
         );
         $(".recommendation").text(recommendation);
         // exercise plan
@@ -133,25 +133,34 @@ function calculateBMI(userData) {
         );
     } else if (BMI > 25 && BMI < 29.9) {
         recommendation = `To ensure a healthy lifestyle, Fitness LIND recommends changing your diet.  Based on your BMI of (${BMI}).  
-        If your BMI is 25.0 to 29.9, it falls within the overweight range. Fitness LIND recommends you support a healthy lifestyle by 
-        Healthy eating
-        1.	Reduce calories by 200 calories per day to lose about a one pound a week 
-        2.	Select foods that are higher in fiber. High-fiber foods take longer to digest, making you feel full longer and have fewer calories.  
-        3.	Maintain body weight between the recommended limits (a BMI of 18.5–25) 
-        `;
-        $(".recommendation").text(recommendation);
-    } else {
-        recommendation = `To ensure a healthy lifestyle, Fitness LIND recommends changing your diet.  Based on your BMI of (${BMI})  
-        If your BMI is 30.0 or higher, it falls within the obese range. Fitness LIND recommends you support a healthy lifestyle by `;
+        If your BMI is 25.0 to 29.9, it falls within the overweight range. Fitness LIND recommends you support a healthy lifestyle by: `;
         $(".rec-list-1").text(
-            "Reduce calories by 500 calories per day to lose about a one pound a week "
+            "Reducing calories by 200 calories per day to lose about a one pound a week. "
         );
         $(".rec-list-2").text(
-            "	Select foods that are higher in fiber. High-fiber foods take longer to digest, making you feel full longer and have fewer calories."
+            "Select foods that are higher in fiber. High-fiber foods take longer to digest, making you feel full longer and have fewer calories. "
+        );
+        $(".rec-list-3").text(
+            "Maintain body weight between the recommended limits (a BMI of 18.5–25). "
+        );
+
+        $(".recommendation").text(recommendation);
+        // exercise plan
+        $(".exercise-plan").text(
+            "Moderate- to vigorous-intensity aerobic exercises should be encouraged. nothing is more important to keeping weight in check and staying healthy than regular activity."
+        );
+    } else {
+        recommendation = `To ensure a healthy lifestyle, Fitness LIND recommends changing your diet.  Based on your BMI of (${BMI}).  
+        If your BMI is 30.0 or higher, it falls within the obese range. Fitness LIND recommends you support a healthy lifestyle by:`;
+        $(".rec-list-1").text(
+            "Reducing calories by 500 calories per day to lose about a one pound a week ."
+        );
+        $(".rec-list-2").text(
+            "	Selecting foods that are higher in fiber. High-fiber foods take longer to digest, making you feel full longer and have fewer calories."
         );
 
         $(".rec-list-1").text(
-            "Maintain body weight between the recommended limits (a BMI of 18.5–25)"
+            "Maintain body weight between the recommended limits (a BMI of 18.5–25)."
         );
         $(".recommendation").text(recommendation);
 
