@@ -1,16 +1,24 @@
-function renderWorkoutVideoUI(result){
-
-    const currentWorkoutItem = workoutVideoHTML(result.name, result.type, result.difficulty, result.muscle, result.instructions);
+/**
+ * Update the DOM with rendered html dom
+ * @param {name: string, muscle, type, difficulty, instructions} result 
+ * @param string video 
+ */
+function renderWorkoutVideoUI(result, video){
+    const currentWorkoutItem = workoutVideoHTML(result, video);
     $("#workoutsVideo").append(currentWorkoutItem);
-    //console.log(currentWorkoutItem)
-  
 }
 
-function workoutVideoHTML(workoutName, workoutType, workoutDifficulty, workoutMuscle, workoutInstructions){
-    return `          <article class="pt-4 sm:p-6 lg:p-4 xl:p-6 items-start sm:space-x-0">
+/**
+ * Creates a singular video dom as string
+ * @param {name, muscle, type, difficulty, instructions} workout 
+ * @param {string} video 
+ * @returns string
+ */
+function workoutVideoHTML(workout, video){
+    return `<article class="pt-4 sm:p-6 lg:p-4 xl:p-6 items-start sm:space-x-0">
     <div class="aspect-w-16 w-full block">
       <iframe
-        src="https://www.youtube.com/embed/r9jwGansp1E"
+        src="https://www.youtube.com/embed/${video}"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
@@ -21,7 +29,7 @@ function workoutVideoHTML(workoutName, workoutType, workoutDifficulty, workoutMu
       <h2
         class="font-semibold truncate sm:pr-20 text-slate-100 text-lg"
       >
-        ${workoutName}
+        ${workout.name}
       </h2>
       <dl
         class="mt-2 flex-none md:flex md:flex-wrap text-sm md:text-md leading-6 font-medium"
@@ -30,12 +38,12 @@ function workoutVideoHTML(workoutName, workoutType, workoutDifficulty, workoutMu
           <dd
             class="px-1.5 ring-1 ring-slate-200 rounded ring-emerald-200"
           >
-            ${workoutMuscle}
+            ${workout.muscle}
           </dd>
         </div>
         <div class="flex mt-2 md:mt-0 text-emerald-100">
           <div class="md:ml-2">
-            <dd class="">${workoutType}</dd>
+            <dd class="">${workout.type}</dd>
           </div>
           <div class="">
             <dd class="flex items-center">
@@ -47,7 +55,7 @@ function workoutVideoHTML(workoutName, workoutType, workoutDifficulty, workoutMu
                 aria-hidden="true"
               >
                 <circle cx="1" cy="1" r="1"></circle></svg
-              >${workoutDifficulty}
+              >${workout.difficulty}
             </dd>
           </div>
         </div>
@@ -55,13 +63,13 @@ function workoutVideoHTML(workoutName, workoutType, workoutDifficulty, workoutMu
           <dt class="sr-only">Details</dt>
           <h2 class="font-semibold pt-2">Workout Description</h2>
           <p class="text-slate-200">
-           ${workoutInstructions}
+           ${workout.instructions}
           </p>
         </div>
       </dl>
 
       <a
-        href="../html/workout_new.html"
+        href="../html/workout.html"
         class="py-2 rounded-full mt-4 bg-emerald-300 pl-4 pr-4 float-right mb-6"
       >
         Go Back
