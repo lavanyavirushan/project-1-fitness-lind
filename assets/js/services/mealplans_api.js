@@ -42,6 +42,13 @@ if (localStorage.getItem("meals") && !isDataOutdated) {
     meals = JSON.parse(localStorage.getItem("meals"));
     console.log(meals);
     addRecipesToDiv(date.getDay());
+    $(".btn-monday").click(() => addRecipesToDiv(0));
+    $(".btn-tuesday").click(() => addRecipesToDiv(1));
+    $(".btn-wednesday").click(() => addRecipesToDiv(2));
+    $(".btn-thursday").click(() => addRecipesToDiv(3));
+    $(".btn-friday").click(() => addRecipesToDiv(4));
+    $(".btn-saturday").click(() => addRecipesToDiv(5));
+    $(".btn-sunday").click(() => addRecipesToDiv(6));
 } else {
     meals = {
         monday: {},
@@ -108,13 +115,13 @@ async function fetchURLs(URLs) {
 function addRecipesToObject(mealplanUserData) {
     fetchURLs(generateFetchURLs(mealplanUserData))
         .then((mealsResponse) => {
-            let counter = 0;
             for (const mealType in mealsResponse) {
+                let counter = 0;
                 for (const day in meals) {
                     meals[day][mealType] =
                         mealsResponse[mealType].hits[counter].recipe;
+                    counter++;
                 }
-                counter++;
             }
             console.log(meals);
             meals.currentDate = date.getTime();
@@ -123,10 +130,18 @@ function addRecipesToObject(mealplanUserData) {
         })
         .then(() => {
             addRecipesToDiv(date.getDay());
+            $(".btn-monday").click(() => addRecipesToDiv(0));
+            $(".btn-tuesday").click(() => addRecipesToDiv(1));
+            $(".btn-wednesday").click(() => addRecipesToDiv(2));
+            $(".btn-thursday").click(() => addRecipesToDiv(3));
+            $(".btn-friday").click(() => addRecipesToDiv(4));
+            $(".btn-saturday").click(() => addRecipesToDiv(5));
+            $(".btn-sunday").click(() => addRecipesToDiv(6));
         });
 }
 function addRecipesToDiv(day) {
-    console.log("started adding divs");
+    console.log(`started adding divs for`);
+    console.log(meals[`${weekdays[day]}`]);
     const { breakfast, lunch, snack1, snack2, dinner } =
         meals[`${weekdays[day]}`];
     $(`.breakfast > img`).attr("src", `${breakfast.images.SMALL.url}`);
