@@ -45,9 +45,9 @@ if (localStorage.getItem("meals")) {
         7;
 }
 if (localStorage.getItem("meals") && !isDataOutdated) {
-    console.log("meal plan data is up to date");
+    // console.log("meal plan data is up to date");
     meals = JSON.parse(localStorage.getItem("meals"));
-    console.log(meals);
+    // console.log(meals);
     addRecipesToDiv(date.getDay());
     $(".btn-monday").click(() => addRecipesToDiv(0));
     $(".btn-tuesday").click(() => addRecipesToDiv(1));
@@ -72,7 +72,7 @@ if (localStorage.getItem("meals") && !isDataOutdated) {
             // dinner: "",
         },
     };
-    console.log(meals);
+    // console.log(meals);
     addRecipesToObject(mealplanUserData);
 }
 
@@ -106,7 +106,7 @@ async function fetchURLs(URLs) {
             let p2 = await p1.json();
             mealsJSON[meal] = p2;
         } catch (error) {
-            console.log(error.message);
+            // console.log(error.message);
             mealsJSON[meal] = "fetch error";
         }
     }
@@ -126,15 +126,15 @@ function addRecipesToObject(mealplanUserData) {
             for (const mealType in mealsResponse) {
                 counter = 1;
                 for (const day in meals) {
-                    console.log(mealsResponse[mealType].hits[counter]);
+                    // console.log(mealsResponse[mealType].hits[counter]);
                     meals[day][mealType] =
                         mealsResponse[mealType].hits[counter].recipe;
                     counter++;
                 }
             }
-            console.log(meals);
+            // console.log(meals);
             meals.currentDate = date.getTime();
-            console.log(meals);
+            // console.log(meals);
             localStorage.setItem("meals", JSON.stringify(meals));
         })
         .then(() => {
@@ -149,7 +149,7 @@ function addRecipesToObject(mealplanUserData) {
         });
 }
 function addRecipesToDiv(day) {
-    console.log(`started adding divs`);
+    // console.log(`started adding divs`);
     const { breakfast, lunch, snack1, snack2, dinner } =
         meals[`${weekdays[day]}`];
     $(`.breakfast > img`).attr("src", `${breakfast.images.SMALL.url}`);
