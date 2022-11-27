@@ -1,3 +1,16 @@
+const difficultyLevel = document.getElementById('difficulty-level');
+const workoutType = document.getElementById('workout-type');
+const workoutMuscle = document.getElementById('muscle-group');
+let userFilter = {
+  difficultyLevel: "beginner",
+  workoutType: "",
+  workoutMuscle: ""
+}
+
+/**
+ * Removes all the workouts in container and appends each workout retuned by API
+ * @param Object results 
+ */
 function workoutsUI(results){
   $("#workouts").html("")
   results.forEach(result => {
@@ -6,6 +19,15 @@ function workoutsUI(results){
   });
 }
 
+/**
+ * This creates singular workout as html sting to be added in DOM
+ * @param String workoutName 
+ * @param String workoutType 
+ * @param String workoutDifficulty 
+ * @param String workoutMuscle 
+ * @param String workoutInstructions 
+ * @returns 
+ */
 function workoutHTML(workoutName, workoutType, workoutDifficulty, workoutMuscle, workoutInstructions){
     return `<article 
     onclick="selectWorkoutVideo('${workoutName}', '${workoutType.replace("_", " ")}', '${workoutDifficulty}', '${workoutMuscle.replace("_", " ")}', '${workoutInstructions}')"
@@ -51,25 +73,26 @@ function workoutHTML(workoutName, workoutType, workoutDifficulty, workoutMuscle,
   </article>`;
 }
 
-const difficultyLevel = document.getElementById('difficulty-level');
-const workoutType = document.getElementById('workout-type');
-const workoutMuscle = document.getElementById('muscle-group');
-let userFilter = {
-  difficultyLevel: "beginner",
-  workoutType: "",
-  workoutMuscle: ""
-}
 
+/**
+ * Filter for listening when user selects defficulity level and updates UI
+ */
 difficultyLevel.addEventListener("change", function(){
   userFilter.difficultyLevel = this.value
   workout(userFilter.difficultyLevel, userFilter.workoutType, userFilter.workoutMuscle)
 });
 
+/**
+ * Filter for listening when user selects workout type and updates UI
+ */
 workoutType.addEventListener("change", function(){
   userFilter.workoutType = this.value
   workout(userFilter.difficultyLevel, userFilter.workoutType, userFilter.workoutMuscle)
 });
 
+/**
+ * Filter for listening when user selects workout muscle and updates UI
+ */
 workoutMuscle.addEventListener("change", function(){
   userFilter.workoutMuscle = this.value
   workout(userFilter.difficultyLevel, userFilter.workoutType, userFilter.workoutMuscle)
