@@ -24,7 +24,7 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![github][github-shield]][github-url] [![github][github-shield]][github-url] [![github][github-shield]][github-url] [![github][github-shield]][github-url]
+[![github][github-shield]][github-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -127,6 +127,8 @@ This project can be used to get customed recommendation on users BMI and AMR. Yo
 ![Product Name Screen Shot][product-screenshot-bmi]
 ![Product Name Screen Shot][product-screenshot-workouts]
 ![Product Name Screen Shot][product-screenshot-workout-video]
+![Product Name Screen Shot][product-screenshot-mealplans]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -176,11 +178,13 @@ Project Link: [https://github.com/lavanyavirushan/project-1-fitness-lind](https:
 [license-shield]: https://img.shields.io/github/license/lavanyavirushan/project-1-fitness-lind.svg?style=for-the-badge
 [license-url]: https://github.com/lavanyavirushan/project-1-fitness-lind/blob/main/LICENSE
 [github-shield]: https://img.shields.io/badge/-github-black.svg?style=for-the-badge&logo=github&colorB=555
-[github-url]: https://github.com/lavanyavirushan
+[github-url]: https://github.com/lavanyavirushan/project-1-fitness-lind
 [product-screenshot]: ./assets/images/screenshots/index.png
 [product-screenshot-bmi]: ./assets/images/screenshots/bmi.png
 [product-screenshot-workouts]: ./assets/images/screenshots/workouts.png
 [product-screenshot-workout-video]: ./assets/images/screenshots/workout-video.png
+[product-screenshot-mealplans]: https://user-images.githubusercontent.com/63548697/204165508-2cb3c9b8-1e8d-4d7b-99c3-967b2f7ba76e.png
+
 [tailwindcss.com]: https://img.shields.io/badge/Tailwindcss-F0F0F0?style=for-the-badge&logo=tailwindcss&logoColor=light-blue
 [tailwindcss-url]: https://tailwindcss.com/
 [jquery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
