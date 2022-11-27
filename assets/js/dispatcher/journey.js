@@ -18,6 +18,10 @@ function submitDispatcher() {
         goal: workoutGoal.value,
     };
 
+    // set food preferences to userdata
+    userData.foodPreferences = returnPreferences();
+
+    // calculate bmi and amr
     calculateBMI(userData);
     calculateAMR(userData);
 
