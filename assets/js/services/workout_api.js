@@ -3,39 +3,6 @@ const workout_url_path = "/exercises";
 const workout_api_key = "KaNfrVr0gq1fjjoGzcLafA==1Ub7ns3B5ds3USXd";
 
 /**
- * This returns all the exercises for given muscle group
- * @param string nameOfMuscle 
- */
-function exerciseMuscleGroup(nameOfMuscle){
-    const queryPram = {
-        "muscle": nameOfMuscle
-    }
-    getAPI(queryPram)
-}
-
-/**
- * List all the workout with difficultyLevel specified
- * @param string difficultyLevel 
- */
-function exerciseLevel(difficultyLevel){
-    const queryPram = {
-        "difficulty": difficultyLevel
-    }
-    getAPI(queryPram)
-}
-
-/**
- * List all workout with workouttype specified
- * @param string workoutTypes 
- */
-function exerciseTypes(workoutTypes){
-    const queryPram = {
-        "type": workoutTypes
-    }
-    getAPI(queryPram);
-}
-
-/**
  * Builds query params and calls the api
  * @param string difficultyLevel 
  * @param string workoutTypes 
@@ -65,11 +32,9 @@ function getAPI(queryPram, callback){
         headers: { 'X-Api-Key': workout_api_key},
         contentType: 'application/json',
         success: function(result) {
-            console.log(result);
             callback(result);
         },
         error: function ajaxError(jqXHR) {
-            console.error('Error: ', jqXHR.responseText);
             callback([]);
         }
     });

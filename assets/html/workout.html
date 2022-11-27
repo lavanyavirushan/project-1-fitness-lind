@@ -46,14 +46,99 @@
     </header>
 
     <!-- List of workouts -->
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-4">
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-4">
+      <!--Workout Filters-->
+      <!-- <div class="lg:col-span-5 xl:col-span-6 flex flex-col mb-6">
+
+      </div> -->
+
       <div class="lg:col-span-5 xl:col-span-6 flex flex-col">
         <div
-          id="workouts"
           class="relative z-10 bg-white rounded-xl shadow-xl ring-1 ring-slate-900/5 divide-y divide-slate-100 my-auto xl:mt-18 bg-emerald-800 divide-slate-200/5 highlight-white/10"
-        ></div>
+        >
+          <div
+            id="workout-filters"
+            class="relative z-10 bg-white rounded-xl rounded-b-none shadow-xl ring-1 ring-slate-900/5 divide-y divide-slate-100 my-auto xl:mt-18 bg-emerald-800 divide-slate-200/5 highlight-white/10"
+          >
+            <div class="pr-4 pl-4 items-start">
+              <!--This is where filter goes-->
+              <div class="grid md:grid-cols-2 pt-4 md:gap-6">
+                <div class="relative z-0 mb-2 w-full group">
+                  <label
+                    for="difficulty-level"
+                    class="block mb-2 text-sm font-medium text-gray-100"
+                    >Difficulty Level</label
+                  >
+                  <select
+                    id="difficulty-level"
+                    class="border-2 border-emerald-700 text-emerald-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  >
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="expert">Expert</option>
+                  </select>
+                </div>
+                <div class="relative z-0 mb-2 w-full group">
+                  <label
+                    for="workout-type"
+                    class="block mb-2 text-sm font-medium text-gray-100"
+                    >Workout Type</label
+                  >
+                  <select
+                    id="workout-type"
+                    class="border-2 border-emerald-700 text-emerald-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  >
+                    <option value="">All</option>
+                    <option value="cardio">Cardio</option>
+                    <option value="olympic_weightlifting">
+                      Olympic Weightlifting
+                    </option>
+                    <option value="plyometrics">Plyometrics</option>
+                    <option value="powerlifting">Powerlifting</option>
+                    <option value="strength">Strength</option>
+                    <option value="stretching">Stretching</option>
+                    <option value="strongman">Strongman</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="relative z-0 pb-6 w-full group">
+                <label
+                  for="muscle-group"
+                  class="block mb-2 text-sm font-medium text-gray-100"
+                  >Muscle Group</label
+                >
+                <select
+                  id="muscle-group"
+                  class="border-2 border-emerald-700 text-emerald-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                >
+                  <option value="">All</option>
+                  <option value="abdominals">Abdominals</option>
+                  <option value="abductors">Abductors</option>
+                  <option value="adductors">Adductors</option>
+                  <option value="biceps">Biceps</option>
+                  <option value="calves">Calves</option>
+                  <option value="chest">Chest</option>
+                  <option value="forearms">Forearms</option>
+                  <option value="glutes">Glutes</option>
+                  <option value="hamstrings">Hamstrings</option>
+                  <option value="lats">Lats</option>
+                  <option value="lower_back">Lower back</option>
+                  <option value="middle_back">Middle back</option>
+                  <option value="neck">Neck</option>
+                  <option value="quadriceps">Quadriceps</option>
+                  <option value="shoulders">Shoulders</option>
+                  <option value="traps">Traps</option>
+                  <option value="triceps">Triceps</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div id="workouts"></div>
+        </div>
       </div>
-    </div>
+    </main>
 
     <!--Footer-->
     <footer class="text-center text-white">
