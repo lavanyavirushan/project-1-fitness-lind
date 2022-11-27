@@ -36,7 +36,7 @@ function workoutHTML(workoutName, workoutType, workoutDifficulty, workoutMuscle,
       src="../images/workouts/${workoutMuscle}.png"
       loading="lazy"
       decoding="async"
-      alt=""
+      alt="${workoutMuscle} image"
       class="flex-none rounded-md bg-slate-100 h-28 hidden sm:block"/>
     <div class="min-w-0 relative flex-auto">
       <h2 class="font-semibold truncate sm:pr-20 text-slate-100 text-lg">
