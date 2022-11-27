@@ -16,10 +16,17 @@ const weekdays = [
     "friday",
     "saturday",
 ];
+
+const userData = JSON.parse(localStorage.getItem("userData"));
+
 const mealplanUserData = {
-    caloriesPerDay: "2000",
-    preferences: ["pork-free", "fish-free"],
-    goal: "gain",
+    caloriesPerDay: `${
+        userData.goal === "gain"
+            ? Number(userData.calories) + 500
+            : Number(userData.calories) - 500
+    } `,
+    preferences: userData.foodPreferences,
+    goal: userData.goal,
 };
 
 // mealplan will be updated daily
@@ -70,7 +77,7 @@ if (localStorage.getItem("meals") && !isDataOutdated) {
 }
 
 function generateFetchURLs(mealplanUserData) {
-    const cals = mealplanUserData.caloriesPerDay;
+    const cals = Number(mealplanUserData.caloriesPerDay);
     const prefs = [...mealplanUserData.preferences];
     const breakfastCalsRange = [cals * 0.162, cals * 0.198];
     const snackCalsRange = [cals * 0.099, cals * 0.121];
@@ -115,9 +122,11 @@ async function fetchURLs(URLs) {
 function addRecipesToObject(mealplanUserData) {
     fetchURLs(generateFetchURLs(mealplanUserData))
         .then((mealsResponse) => {
+            let counter = 1;
             for (const mealType in mealsResponse) {
-                let counter = 0;
+                counter = 1;
                 for (const day in meals) {
+                    console.log(mealsResponse[mealType].hits[counter]);
                     meals[day][mealType] =
                         mealsResponse[mealType].hits[counter].recipe;
                     counter++;
