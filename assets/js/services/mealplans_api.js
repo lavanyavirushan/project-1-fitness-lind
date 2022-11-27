@@ -140,8 +140,7 @@ function addRecipesToObject(mealplanUserData) {
         });
 }
 function addRecipesToDiv(day) {
-    console.log(`started adding divs for`);
-    console.log(meals[`${weekdays[day]}`]);
+    console.log(`started adding divs`);
     const { breakfast, lunch, snack1, snack2, dinner } =
         meals[`${weekdays[day]}`];
     $(`.breakfast > img`).attr("src", `${breakfast.images.SMALL.url}`);
@@ -161,5 +160,11 @@ function addRecipesToDiv(day) {
     $(`.dinner > img`).attr("src", `${dinner.images.SMALL.url}`);
     $(`.dinner-recipe-name`).text(`${dinner.label}`);
     $(".dinner-ingridients").html(`${dinner.ingredientLines.join("<br>")}`);
-    console.log(breakfast.ingredientLines);
+
+    // add listeners to click on divs
+    $(".breakfast").click(() => window.open(`${breakfast.url}`));
+    $(".snack1").click(() => window.open(`${snack1.url}`));
+    $(".lunch").click(() => window.open(`${lunch.url}`));
+    $(".snack2").click(() => window.open(`${snack2.url}`));
+    $(".dinner").click(() => window.open(`${dinner.url}`));
 }
