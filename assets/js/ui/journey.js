@@ -79,7 +79,7 @@ function calculateBMI(userData) {
         $(".recommendation").text(recommendation);
         // exercise plan
         $(".exercise-plan").text(
-            "Moderate- to vigorous-intensity aerobic exercises should be encouraged. nothing is more important to keeping weight in check and staying healthy than regular activity."
+            "Moderate- to vigorous-intensity aerobic exercises should be encouraged. Nothing is more important to keeping weight in check and staying healthy than regular activity."
         );
     } else {
         recommendation = `To ensure a healthy lifestyle, Fitness LIND recommends changing your diet.  Based on your BMI of (${BMI}).  
@@ -98,7 +98,7 @@ function calculateBMI(userData) {
 
         // exercise plan
         $(".exercise-plan").text(
-            "Walking, water exercise and low-impact cardio options that are easy on the joints. Start with a few minutes, a few days a week and you will quickly build endurance for longer workouts."
+            "Walking, water, exercise and low-impact cardio options that are easy on the joints. Start with a few minutes, a few days a week and you will quickly build endurance for longer workouts."
         );
     }
 }
