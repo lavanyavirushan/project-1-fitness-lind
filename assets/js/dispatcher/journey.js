@@ -55,7 +55,7 @@ function calculateAMR(userData) {
     } else if (userData.bodyType === "Light Activity") {
         // Lightly active (exercise 1–3 days/week): AMR = BMR x 1.375
         AMR = BMR * 1.375;
-    } else if (userData.bodyType === "Moderately Activity") {
+    } else if (userData.bodyType === "Moderate Activity") {
         // Moderately active (exercise 3–5 days/week): AMR = BMR x 1.55
         AMR = BMR * 1.55;
     } else if (userData.bodyType === "Very Active") {
