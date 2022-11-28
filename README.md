@@ -123,12 +123,11 @@ Make sure to have installed VScode and the Live server extension within VScode i
 
 This project can be used to get customed recommendation on users BMI and AMR. You can checkout various different workouts and their corresponding videos to be able to help user with their fitness journey. Along with workout videos, users may also get customized meal plans on the same site allowing them to have a one stop site that prvides them with all the information to be successfull in their journey to become healthy.
 
-![Product Name Screen Shot][product-screenshot]
 ![Product Name Screen Shot][product-screenshot-bmi]
 ![Product Name Screen Shot][product-screenshot-workouts]
 ![Product Name Screen Shot][product-screenshot-workout-video]
 ![Product Name Screen Shot][product-screenshot-mealplans]
-
+![Product Name Screen Shot][product-screenshot-about]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -179,11 +178,12 @@ Project Link: [https://github.com/lavanyavirushan/project-1-fitness-lind](https:
 [license-url]: https://github.com/lavanyavirushan/project-1-fitness-lind/blob/main/LICENSE
 [github-shield]: https://img.shields.io/badge/-github-black.svg?style=for-the-badge&logo=github&colorB=555
 [github-url]: https://github.com/lavanyavirushan/project-1-fitness-lind
-[product-screenshot]: ./assets/images/screenshots/index.png
-[product-screenshot-bmi]: ./assets/images/screenshots/bmi.png
-[product-screenshot-workouts]: ./assets/images/screenshots/workouts.png
-[product-screenshot-workout-video]: ./assets/images/screenshots/workout-video.png
-[product-screenshot-mealplans]: https://user-images.githubusercontent.com/63548697/204165508-2cb3c9b8-1e8d-4d7b-99c3-967b2f7ba76e.png
+[product-screenshot]: https://user-images.githubusercontent.com/63548697/204180902-6db65c02-85e2-4dd2-96c9-a5aa6fbf1c83.png
+[product-screenshot-bmi]: https://user-images.githubusercontent.com/63548697/204181285-a4e3df78-cea2-4824-83d0-5845a55c2e37.png
+[product-screenshot-workouts]: https://user-images.githubusercontent.com/63548697/204181506-b39d7a89-64a2-4c97-84a1-435c8e3d72c5.png
+[product-screenshot-workout-video]: https://user-images.githubusercontent.com/63548697/204182036-1013c6ad-c526-48ed-b62a-cf5e2ffb7be0.png
+[product-screenshot-mealplans]: https://user-images.githubusercontent.com/63548697/204182335-bdc68f3b-bbb0-4e81-95b8-3ea8161050d6.png
+[product-screenshot-about]: https://user-images.githubusercontent.com/63548697/204182458-ce898edf-8756-40e3-a973-44e7ccd192d9.png
 
 [tailwindcss.com]: https://img.shields.io/badge/Tailwindcss-F0F0F0?style=for-the-badge&logo=tailwindcss&logoColor=light-blue
 [tailwindcss-url]: https://tailwindcss.com/
