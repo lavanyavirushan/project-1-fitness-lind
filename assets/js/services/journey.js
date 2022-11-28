@@ -15,11 +15,3 @@ function setUserDetails(userData) {
 function getUserDetails() {
     return JSON.parse(localStorage.getItem(storageKey));
 }
-
-function returnPreferences() {
-    let checked = [];
-    $("input[type='checkbox']:checked").each(function () {
-        checked.push($(this).val());
-    });
-    return checked;
-}
