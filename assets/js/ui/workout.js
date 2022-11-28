@@ -8,13 +8,13 @@ function workoutsUI(results){
 function workoutHTML(workoutName, workoutType, workoutDifficulty, workoutMuscle, workoutInstructions){
     return `<article 
     onclick="selectWorkoutVideo('${workoutName}', '${workoutType}', '${workoutDifficulty}', '${workoutMuscle}', '${workoutInstructions}')"
-    class="p-4 sm:p-6 lg:p-4 xl:p-6 space-x-4 items-start sm:space-x-6 lg:space-x-4 xl:space-x-6 flex cursor-pointer">
+    class="p-4 sm:p-6 lg:p-4 xl:p-6 space-x-4 items-start sm:space-x-6 lg:space-x-4 xl:space-x-6 flex cursor-pointer hover:bg-emerald-700 .workout_wrapper">
     <img
-      src="https://cdn.muscleandstrength.com/sites/default/files/field/image/article/chest_thumb.jpg"
+      src="../images/workouts/${workoutMuscle}.png"
       loading="lazy"
       decoding="async"
       alt=""
-      class="flex-none rounded-md bg-slate-100 w-24 sm:w-40 hidden sm:block"/>
+      class="flex-none rounded-md bg-slate-100 h-40 hidden sm:block"/>
     <div class="min-w-0 relative flex-auto">
       <h2 class="font-semibold truncate sm:pr-20 text-slate-100 text-lg">
         ${workoutName}
