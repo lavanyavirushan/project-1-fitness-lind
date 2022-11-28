@@ -55,7 +55,6 @@ function globalFunction() {
     if (localStorage.getItem("meals") && !isDataOutdated) {
         meals = JSON.parse(localStorage.getItem("meals"));
 
-        console.log(date.getDay());
         addRecipesToDiv(date.getDay());
         $(".btn-monday").click(() => addRecipesToDiv(1));
         $(".btn-tuesday").click(() => addRecipesToDiv(2));
@@ -114,7 +113,6 @@ function globalFunction() {
                 let p2 = await p1.json();
                 mealsJSON[meal] = p2;
             } catch (error) {
-                // console.log(error.message);
                 mealsJSON[meal] = "fetch error";
             }
         }
@@ -129,16 +127,14 @@ function globalFunction() {
                 for (const mealType in mealsResponse) {
                     counter = 1;
                     for (const day in meals) {
-                        // console.log(mealsResponse[mealType].hits[counter]);
                         meals[day][mealType] =
                             mealsResponse[mealType].hits[counter].recipe;
                         counter++;
-                        console.log(meals[day][mealType]);
                     }
                 }
-                // console.log(meals);
+
                 meals.currentDate = date.getTime();
-                // console.log(meals);
+
                 localStorage.setItem("meals", JSON.stringify(meals));
             })
             .then(() => {
