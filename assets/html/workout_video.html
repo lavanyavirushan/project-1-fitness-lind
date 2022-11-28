@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fitness LIND - One place for all your fitness goals.</title>
+    <title>Fitness LIND - Workout Video</title>
   </head>
   <body class="bg-emerald-100">
     <!--Navigation-->
-    <header class="">
+    <header>
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <a href="./">
+        <a href="../../">
           <img
-            src="assets/images/logo/logo-no-background.png"
+            src="../images/logo/logo-no-background.png"
             alt="logo"
             class="mx-auto py-3"
             width="120"
@@ -23,23 +23,23 @@
           <div class="flex items-center md:gap-x-12">
             <div class="md:flex md:gap-x-6">
               <a
-                class="inline-block rounded-lg py-1 px-2 text-sm text-emerald-700 hover:bg-emerald-100 hover:text-emerald-900"
-                href="./"
+                class="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-emerald-100 hover:text-emerald-900"
+                href="../../"
                 >Home</a
               >
               <a
-                class="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-emerald-100 hover:text-emerald-900"
-                href="./assets/html/workout.html"
+                class="inline-block rounded-lg py-1 px-2 text-sm text-emerald-600 hover:bg-emerald-100 hover:text-emerald-900"
+                href="./workout.html"
                 >Workouts</a
               >
               <a
                 class="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-emerald-100 hover:text-emerald-900"
-                href="./assets/html/diet.html"
+                href="./diet.html"
                 >Meal Plans</a
               >
               <a
                 class="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-emerald-100 hover:text-emerald-900"
-                href="./assets/html/about.html"
+                href="./about.html"
                 >About</a
               >
             </div>
@@ -48,36 +48,18 @@
       </div>
     </header>
 
-    <!--Body-->
-    <main>
-      <div
-        class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-16 text-center"
-      >
-        <h1
-          class="mx-auto max-w-3xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl"
-        >
-          Push harder than yesterday if you want a
-          <span class="relative whitespace-nowrap text-emerald-600"
-            ><span class="relative">different</span></span
-          >
-          tomorrow.
-        </h1>
-        <p class="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
-          Achieve your dream fitness goal with workout videos and customized
-          meal plans!
-        </p>
-        <div class="mt-10 flex justify-center gap-x-6">
-          <a
-            class="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-emerald-700 text-white hover:bg-emerald-900"
-            href="./assets/html/journey.html"
-            >Start your Journey</a
-          >
-        </div>
+    <!-- List of workouts -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-4">
+      <div class="lg:col-span-5 xl:col-span-6 flex flex-col">
+        <div
+          id="workoutsVideo"
+          class="relative z-10 bg-white rounded-xl shadow-xl ring-1 ring-slate-900/5 divide-y divide-slate-100 my-auto xl:mt-18 bg-emerald-800 divide-slate-200/5 highlight-white/10"
+        ></div>
       </div>
     </main>
 
     <!--Footer-->
-    <footer class="text-center text-white fixed inset-x-0 bottom-0">
+    <footer class="text-center text-white">
       <div class="pt-2">
         <div class="flex justify-center mb-2">
           <a
@@ -149,7 +131,19 @@
         <a class="text-gray-100" href="/">&copy; 2022 Fitness LIND</a>
       </div>
     </footer>
-    <!-- 3rd party Libraries -->
+
+    <!-- listing the exercices end -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+
+    <!--Our Js-->
+    <script src="../js/services/workout_video.js"></script>
+    <script src="../js/services/workout_video_api.js"></script>
+    <script src="../js/dispatcher/workout_video.js"></script>
+    <script src="../js/ui/workout_video.js"></script>
   </body>
 </html>
