@@ -20,7 +20,6 @@ const workoutEvent = workout.addEventListener("click", function (event) {
 // function to calculate BMI
 // BMI = Weight / height * height
 function calculateBMI(userData) {
-    console.log(userData.weight);
     let recommendation;
     // bmi in pounds and inches
     let BMI = (
@@ -30,7 +29,6 @@ function calculateBMI(userData) {
 
     $(".bmi-score").text(`BMI score ${BMI}`);
 
-    console.log(BMI);
     if (BMI < 18.5) {
         recommendation = `
         To ensure a healthy lifestyle, Fitness LIND recommends increasing your intake of more nutrient-rich foods like meat, fish breads, pastas, fruits, vegetables and dairy products.  Based on your BMI of  (${BMI}).  If your BMI is less than 18.5, it falls within the underweight range. Fitness LIND recommends you support a healthy lifestyle by:`;
