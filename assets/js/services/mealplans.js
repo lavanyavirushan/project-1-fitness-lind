@@ -109,7 +109,15 @@ function globalFunction() {
         const mealsJSON = {};
         for (const meal in URLs) {
             try {
-                let p1 = await fetch(URLs[meal]);
+                let p1;
+                try {
+                    p1 = await fetch(URLs[meal]);
+                } catch {
+                    console.log(
+                        "Currently we're using free version of api that has limits for calls, please try again in a minute"
+                    );
+                }
+
                 let p2 = await p1.json();
                 mealsJSON[meal] = p2;
             } catch (error) {
