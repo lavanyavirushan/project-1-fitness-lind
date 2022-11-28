@@ -36,16 +36,16 @@ function workoutVideoHTML(workout, video){
       >
         <div class="text-emerald-200 w-fit">
           <dd
-            class="px-1.5 ring-1 ring-slate-200 rounded ring-emerald-200"
+            class="px-1.5 ring-1 ring-slate-200 rounded ring-emerald-200 capitalize"
           >
             ${workout.muscle}
           </dd>
         </div>
         <div class="flex mt-2 md:mt-0 text-emerald-100">
           <div class="md:ml-2">
-            <dd class="">${workout.type}</dd>
+            <dd class="capitalize">${workout.type}</dd>
           </div>
-          <div class="">
+          <div class="capitalize">
             <dd class="flex items-center">
               <svg
                 width="2"
