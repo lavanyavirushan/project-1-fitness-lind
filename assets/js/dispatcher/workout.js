@@ -28,5 +28,5 @@ function selectWorkoutVideo(workoutName, workoutType, workoutDifficulty, workout
         "difficulty": workoutDifficulty,
         "instructions": workoutInstructions
     })
-    window.location.pathname = "/assets/html/workout_video.html"
+    window.location.href = "../html/workout_video.html"
 }

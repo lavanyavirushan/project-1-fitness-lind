@@ -109,3 +109,11 @@ function calorieRecomendationUI(userData) {
     $(".weight").text(`${userData.weight} kg`);
     $(".age").text(userData.age);
 }
+
+function returnPreferences() {
+    let checked = [];
+    $("input[type='checkbox']:checked").each(function () {
+        checked.push($(this).val());
+    });
+    return checked;
+}
